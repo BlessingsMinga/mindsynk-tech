@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { ArrowRight, Phone, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Counter } from "@/components/counter"
+import WarpText from "@/components/warp-text"
 import { stats, companyInfo } from "@/lib/data"
 
 const container = {
@@ -46,31 +47,30 @@ export function Hero() {
             </span>
           </motion.div>
 
-          <motion.h1
-            variants={item}
-            className="mt-6 text-4xl font-bold leading-[1.1] tracking-tight text-balance sm:text-5xl lg:text-[3.5rem]"
-          >
-            We design, build, and scale{" "}
-            <span className="relative inline-block">
-              <span className="relative z-10 text-brand">enterprise</span>
-              <svg
-                className="absolute -bottom-1 left-0 z-0 w-full"
-                viewBox="0 0 200 12"
-                preserveAspectRatio="none"
-                aria-hidden="true"
-              >
-                <path
-                  d="M2 8 Q 50 2, 100 6 T 198 5"
-                  stroke="oklch(0.82 0.07 80)"
-                  strokeWidth="3"
-                  fill="none"
-                  strokeLinecap="round"
-                  opacity="0.6"
-                />
-              </svg>
-            </span>{" "}
-            digital systems for organisations.
-          </motion.h1>
+          {/* SEO-friendly heading (visually hidden, rendered by WarpText below) */}
+          <h1 className="sr-only">
+            We design, build, and scale enterprise digital systems for organisations.
+          </h1>
+
+          <motion.div variants={item} className="mt-6">
+            <WarpText
+              text={"We design, build, and scale\nenterprise digital systems."}
+              color="#ffffff"
+              warpStrength={0.09}
+              warpScale={1.8}
+              speed={0.5}
+              pointerInfluence={0.45}
+              pointerStrength={0.4}
+              refraction={0.02}
+              ripple
+              fontSize="clamp(2.25rem, 4.8vw, 4.25rem)"
+              fontWeight={700}
+              letterSpacing="-0.03em"
+              lineHeight={1.05}
+              className="max-w-xl"
+              style={{ height: "clamp(170px, 20vw, 260px)" }}
+            />
+          </motion.div>
 
           <motion.p
             variants={item}
@@ -108,7 +108,7 @@ export function Hero() {
           <div className="relative overflow-hidden rounded-[2.5rem] bg-brand">
             <div className="absolute inset-0 bg-grid opacity-30" aria-hidden="true" />
             <img
-              src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/1f13da4bd838.jpg"
+              src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/b0c8aec62d3c.jpg"
               alt="Professional MindSynk Technologies team — diverse business leaders ready to partner with your organisation"
               className="relative aspect-[4/5] w-full object-cover mix-blend-luminosity opacity-95"
               loading="eager"

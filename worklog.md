@@ -98,3 +98,23 @@ Stage Summary:
 - The site now uses the MindSynk logo's exact two colours: vibrant orange #f15922 as the energetic brand accent (CTAs, highlights, numbers, badges, scrollbar) and dark navy #1d1e32 as the structural primary (dark sections, body text, default buttons).
 - The Glitex-inspired enterprise layout (split hero, 3-phase process, Challenge/Solution/Outcome case studies, security pillars) is preserved — only the colour palette swapped from gold to the logo's orange.
 - Logo legibility fixed on all surfaces: light navbar (navy text), dark-mode navbar (auto white text), and dark navy footer (forced white-text variant).
+
+---
+Task ID: 5
+Agent: Main (Z.ai Code)
+Task: Integrate the React Bits WarpText component (TypeScript + CSS variant, ogl dependency) into the hero headline on the landing page.
+
+Work Log:
+- Installed the `ogl` WebGL helper library via `bun add ogl` (v1.0.11).
+- Created `/src/components/warp-text.css` with the component's positioning styles (relative container, absolute canvas, overflow hidden, isolate).
+- Created `/src/components/warp-text.tsx` — the full React Bits WarpText component source with `"use client"` directive (uses useEffect/useRef/WebGL/ResizeObserver/IntersectionObserver, all browser-only). Renders text into a canvas texture and applies a GLSL glass-refraction warp shader with ambient FBM noise undulation + pointer-driven lensing + RGB channel split + optional ripple.
+- Integrated WarpText into the hero (`src/components/sections/hero.tsx`): replaced the static <h1> with an sr-only <h1> (preserves SEO/heading semantics) + a visible <WarpText> rendering the headline "We design, build, and scale\nenterprise digital systems." in white (#ffffff) on the dark navy hero. Tuned props for a professional B2B aesthetic: warpStrength 0.09, warpScale 1.8, speed 0.5, pointerInfluence 0.45, pointerStrength 0.4, refraction 0.02, ripple on, fontSize clamp(2.25rem, 4.8vw, 4.25rem), fontWeight 700, responsive height clamp(170px, 20vw, 260px).
+- Wrapped WarpText in the existing Framer Motion staggered reveal so it animates in with the rest of the hero content.
+- Fixed an unrelated stock-photo watermark issue: the previous hero right-side image had a visible "Envato"/"Vergani Fotografia" watermark. Searched for clean replacements via z-ai image-search, verified a candidate with the VLM skill (confirmed "no visible watermark"), and swapped the hero image to the clean Unsplash-sourced photo.
+- Verified with Agent Browser: WarpText container renders with role="img" + correct aria-label, the WebGL2 canvas is active (576×256, getContext('webgl2') = true), headline text "We design, build, and scale enterprise digital systems." renders in white, no console/page errors, clean image with no watermark. Lint passes clean.
+
+Stage Summary:
+- The React Bits WarpText component is integrated into the hero headline, rendering the MindSynk value proposition as an interactive WebGL glass-refraction text effect with ambient undulation and pointer-driven lensing/ripple, tuned to a subtle, professional level appropriate for a B2B site.
+- SEO preserved via a visually-hidden <h1>; accessibility preserved via role="img" + aria-label on the WarpText container.
+- The component respects prefers-reduced-motion (disables ambient + pointer motion) and pauses its RAF loop when off-screen (IntersectionObserver) or when the tab is hidden, so it has no performance cost when not visible.
+- ogl dependency added; lint clean; no runtime errors.
