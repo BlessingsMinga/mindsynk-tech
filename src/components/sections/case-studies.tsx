@@ -42,7 +42,7 @@ export function CaseStudies() {
 
                   {/* Sector + region badges */}
                   <div className="absolute left-4 top-4 flex flex-wrap gap-2">
-                    <span className="rounded-full bg-gold px-3 py-1 text-xs font-semibold text-navy">
+                    <span className="rounded-full bg-brand px-3 py-1 text-xs font-semibold text-navy">
                       {cs.sector}
                     </span>
                   </div>
@@ -57,7 +57,7 @@ export function CaseStudies() {
                 {/* Challenge / Solution / Outcome */}
                 <div className="flex flex-1 flex-col gap-4 p-6">
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-wide text-gold">
+                    <p className="text-xs font-semibold uppercase tracking-wide text-brand">
                       Challenge
                     </p>
                     <p className="mt-1.5 text-sm text-muted-foreground text-pretty">
@@ -65,7 +65,7 @@ export function CaseStudies() {
                     </p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-wide text-gold">
+                    <p className="text-xs font-semibold uppercase tracking-wide text-brand">
                       Solution
                     </p>
                     <p className="mt-1.5 text-sm text-muted-foreground text-pretty">
@@ -76,7 +76,7 @@ export function CaseStudies() {
                   {/* Outcome */}
                   <div className="mt-auto flex items-center gap-4 rounded-xl bg-navy p-4 text-white">
                     <div>
-                      <p className="text-3xl font-bold text-gold">{cs.outcomeValue}</p>
+                      <p className="text-3xl font-bold text-brand">{cs.outcomeValue}</p>
                     </div>
                     <p className="flex-1 text-sm text-white/80 text-pretty">
                       {cs.outcome}

@@ -30,7 +30,7 @@ export function Hero() {
       <div className="absolute inset-0 -z-10 bg-grid opacity-40" aria-hidden="true" />
       {/* Gradient orbs */}
       <motion.div
-        className="absolute -top-24 left-1/3 -z-10 size-[32rem] rounded-full bg-gold/10 blur-3xl"
+        className="absolute -top-24 left-1/3 -z-10 size-[32rem] rounded-full bg-brand/10 blur-3xl"
         aria-hidden="true"
         animate={{ x: [0, 40, 0], y: [0, 30, 0] }}
         transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
@@ -40,7 +40,7 @@ export function Hero() {
         {/* Left content */}
         <motion.div variants={container} initial="hidden" animate="visible" className="text-white">
           <motion.div variants={item}>
-            <span className="inline-flex items-center gap-2 rounded-full border border-gold/30 bg-gold/10 px-3 py-1.5 text-xs font-medium text-gold">
+            <span className="inline-flex items-center gap-2 rounded-full border border-brand/30 bg-brand/10 px-3 py-1.5 text-xs font-medium text-brand">
               <Sparkles className="size-3.5" />
               Enterprise-Grade Technology Partner
             </span>
@@ -52,7 +52,7 @@ export function Hero() {
           >
             We design, build, and scale{" "}
             <span className="relative inline-block">
-              <span className="relative z-10 text-gold">enterprise</span>
+              <span className="relative z-10 text-brand">enterprise</span>
               <svg
                 className="absolute -bottom-1 left-0 z-0 w-full"
                 viewBox="0 0 200 12"
@@ -82,7 +82,7 @@ export function Hero() {
           </motion.p>
 
           <motion.div variants={item} className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <Button asChild size="lg" className="group h-12 rounded-full bg-gold px-7 text-base text-navy hover:bg-gold/90">
+            <Button asChild size="lg" className="group h-12 rounded-full bg-brand px-7 text-base text-navy hover:bg-brand/90">
               <a href="#contact">
                 Request a Quote
                 <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
@@ -105,7 +105,7 @@ export function Hero() {
           className="relative mx-auto w-full max-w-lg lg:max-w-none"
         >
           {/* Gold blob container with grid pattern */}
-          <div className="relative overflow-hidden rounded-[2.5rem] bg-gold">
+          <div className="relative overflow-hidden rounded-[2.5rem] bg-brand">
             <div className="absolute inset-0 bg-grid opacity-30" aria-hidden="true" />
             <img
               src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/1f13da4bd838.jpg"
@@ -124,8 +124,8 @@ export function Hero() {
             className="absolute -bottom-5 -left-3 hidden rounded-2xl border border-white/10 bg-navy-deep/95 p-4 shadow-2xl backdrop-blur-md sm:block"
           >
             <div className="flex items-center gap-3">
-              <div className="flex size-11 items-center justify-center rounded-xl bg-gold/20">
-                <Sparkles className="size-5 text-gold" />
+              <div className="flex size-11 items-center justify-center rounded-xl bg-brand/20">
+                <Sparkles className="size-5 text-brand" />
               </div>
               <div>
                 <p className="text-2xl font-bold text-white">
@@ -148,7 +148,7 @@ export function Hero() {
         <div className="grid grid-cols-2 gap-4 border-t border-white/10 pt-8 sm:gap-8 lg:grid-cols-4">
           {stats.map((stat) => (
             <div key={stat.label} className="text-center sm:text-left">
-              <p className="text-4xl font-bold text-gold sm:text-5xl">
+              <p className="text-4xl font-bold text-brand sm:text-5xl">
                 <Counter value={stat.value} suffix={stat.suffix} />
               </p>
               <p className="mt-1.5 text-sm text-white/60">{stat.label}</p>

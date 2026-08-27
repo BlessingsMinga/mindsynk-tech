@@ -40,27 +40,27 @@ export function Navbar() {
         <div className="mx-auto flex h-9 max-w-7xl items-center justify-between px-8 text-xs">
           <div className="flex items-center gap-6">
             <span className="flex items-center gap-1.5">
-              <MapPin className="size-3.5 text-gold" />
+              <MapPin className="size-3.5 text-brand" />
               {companyInfo.address}
             </span>
             <span className="flex items-center gap-1.5">
-              <Clock className="size-3.5 text-gold" />
+              <Clock className="size-3.5 text-brand" />
               {companyInfo.hours}
             </span>
           </div>
           <div className="flex items-center gap-6">
             <a
               href={`mailto:${companyInfo.email}`}
-              className="flex items-center gap-1.5 transition-colors hover:text-gold"
+              className="flex items-center gap-1.5 transition-colors hover:text-brand"
             >
-              <Mail className="size-3.5 text-gold" />
+              <Mail className="size-3.5 text-brand" />
               {companyInfo.email}
             </a>
             <a
               href={`tel:${companyInfo.phone.replace(/\s/g, "")}`}
-              className="flex items-center gap-1.5 transition-colors hover:text-gold"
+              className="flex items-center gap-1.5 transition-colors hover:text-brand"
             >
-              <Phone className="size-3.5 text-gold" />
+              <Phone className="size-3.5 text-brand" />
               {companyInfo.phone}
             </a>
           </div>
@@ -154,15 +154,15 @@ export function Navbar() {
                   </SheetClose>
                   <div className="space-y-1.5 border-t border-border pt-3 text-sm text-muted-foreground">
                     <a href={`mailto:${companyInfo.email}`} className="flex items-center gap-2">
-                      <Mail className="size-4 text-gold" />
+                      <Mail className="size-4 text-brand" />
                       {companyInfo.email}
                     </a>
                     <a href={`tel:${companyInfo.phone.replace(/\s/g, "")}`} className="flex items-center gap-2">
-                      <Phone className="size-4 text-gold" />
+                      <Phone className="size-4 text-brand" />
                       {companyInfo.phone}
                     </a>
                     <p className="flex items-center gap-2">
-                      <MapPin className="size-4 text-gold" />
+                      <MapPin className="size-4 text-brand" />
                       {companyInfo.address}
                     </p>
                   </div>

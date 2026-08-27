@@ -14,14 +14,14 @@ export function Process() {
       <div className="absolute inset-0 -z-10 bg-grid opacity-30" aria-hidden="true" />
       {/* Gold orb */}
       <div
-        className="pointer-events-none absolute -right-32 top-1/4 -z-10 size-96 rounded-full bg-gold/10 blur-3xl"
+        className="pointer-events-none absolute -right-32 top-1/4 -z-10 size-96 rounded-full bg-brand/10 blur-3xl"
         aria-hidden="true"
       />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <Reveal className="max-w-3xl">
-          <span className="inline-block rounded-full border border-gold/30 bg-gold/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-gold">
+          <span className="inline-block rounded-full border border-brand/30 bg-brand/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-brand">
             Built for Complex Organisations
           </span>
           <h2 className="mt-4 text-3xl font-bold tracking-tight text-white text-balance sm:text-4xl">
@@ -56,10 +56,10 @@ export function Process() {
               >
                 {/* Number + label */}
                 <div className="flex items-center gap-4">
-                  <span className="flex size-14 items-center justify-center rounded-full border border-gold/40 bg-gold/10 text-xl font-bold text-gold">
+                  <span className="flex size-14 items-center justify-center rounded-full border border-brand/40 bg-brand/10 text-xl font-bold text-brand">
                     {phase.number}
                   </span>
-                  <span className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">
+                  <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
                     {phase.label}
                   </span>
                 </div>

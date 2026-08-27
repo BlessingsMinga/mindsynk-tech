@@ -19,7 +19,7 @@ export function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <div className="rounded-lg bg-white/5 p-3 inline-block">
-              <Logo height={28} />
+              <Logo height={28} variant="dark" />
             </div>
             <p className="mt-5 max-w-xs text-sm text-white/60 text-pretty">
               {companyInfo.tagline}. A B2B technology partner designing,
@@ -34,7 +34,7 @@ export function Footer() {
                     key={social.label}
                     href={social.href}
                     aria-label={social.label}
-                    className="flex size-9 items-center justify-center rounded-lg border border-white/10 text-white/60 transition-colors hover:border-gold/40 hover:bg-gold/10 hover:text-gold"
+                    className="flex size-9 items-center justify-center rounded-lg border border-white/10 text-white/60 transition-colors hover:border-brand/40 hover:bg-brand/10 hover:text-brand"
                   >
                     <Icon className="size-4" />
                   </a>
@@ -53,7 +53,7 @@ export function Footer() {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="text-sm text-white/60 transition-colors hover:text-gold"
+                    className="text-sm text-white/60 transition-colors hover:text-brand"
                   >
                     {link.label}
                   </a>
@@ -72,7 +72,7 @@ export function Footer() {
                 <li key={service.id}>
                   <a
                     href="#services"
-                    className="text-sm text-white/60 transition-colors hover:text-gold"
+                    className="text-sm text-white/60 transition-colors hover:text-brand"
                   >
                     {service.title}
                   </a>
@@ -88,31 +88,31 @@ export function Footer() {
             </h3>
             <ul className="mt-4 space-y-3 text-sm">
               <li className="flex items-start gap-2.5 text-white/60">
-                <MapPin className="mt-0.5 size-4 shrink-0 text-gold" />
+                <MapPin className="mt-0.5 size-4 shrink-0 text-brand" />
                 {companyInfo.address}
               </li>
               <li>
                 <a
                   href={`mailto:${companyInfo.email}`}
-                  className="flex items-start gap-2.5 text-white/60 transition-colors hover:text-gold"
+                  className="flex items-start gap-2.5 text-white/60 transition-colors hover:text-brand"
                 >
-                  <Mail className="mt-0.5 size-4 shrink-0 text-gold" />
+                  <Mail className="mt-0.5 size-4 shrink-0 text-brand" />
                   {companyInfo.email}
                 </a>
               </li>
               <li>
                 <a
                   href={`tel:${companyInfo.phone.replace(/\s/g, "")}`}
-                  className="flex items-start gap-2.5 text-white/60 transition-colors hover:text-gold"
+                  className="flex items-start gap-2.5 text-white/60 transition-colors hover:text-brand"
                 >
-                  <Phone className="mt-0.5 size-4 shrink-0 text-gold" />
+                  <Phone className="mt-0.5 size-4 shrink-0 text-brand" />
                   {companyInfo.phone}
                 </a>
               </li>
             </ul>
             <a
               href="#contact"
-              className="mt-5 inline-flex items-center gap-1.5 rounded-full bg-gold px-4 py-2 text-sm font-semibold text-navy transition-colors hover:bg-gold/90"
+              className="mt-5 inline-flex items-center gap-1.5 rounded-full bg-brand px-4 py-2 text-sm font-semibold text-navy transition-colors hover:bg-brand/90"
             >
               Start a project
               <ArrowUpRight className="size-3.5" />

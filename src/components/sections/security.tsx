@@ -18,7 +18,7 @@ export function Security() {
         {/* Header */}
         <div className="grid gap-10 lg:grid-cols-2 lg:items-end">
           <Reveal>
-            <span className="inline-block rounded-full border border-gold/30 bg-gold/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-gold">
+            <span className="inline-block rounded-full border border-brand/30 bg-brand/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-brand">
               Built on Global Frameworks
             </span>
             <h2 className="mt-4 text-3xl font-bold tracking-tight text-white text-balance sm:text-4xl">
@@ -54,12 +54,12 @@ export function Security() {
                 <motion.div
                   whileHover={{ y: -6 }}
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                  className="group flex h-full flex-col rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-colors hover:border-gold/30 hover:bg-white/[0.07]"
+                  className="group flex h-full flex-col rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-colors hover:border-brand/30 hover:bg-white/[0.07]"
                 >
                   <motion.div
                     whileHover={{ scale: 1.1, rotate: -4 }}
                     transition={{ type: "spring", stiffness: 300, damping: 15 }}
-                    className="mb-4 flex size-11 items-center justify-center rounded-xl bg-gold/15 text-gold"
+                    className="mb-4 flex size-11 items-center justify-center rounded-xl bg-brand/15 text-brand"
                   >
                     <Icon className="size-5" />
                   </motion.div>
@@ -78,7 +78,7 @@ export function Security() {
           <p className="text-white/60">
             Ready to discuss a specific initiative?
           </p>
-          <Button asChild size="lg" className="rounded-full bg-gold px-8 text-navy hover:bg-gold/90">
+          <Button asChild size="lg" className="rounded-full bg-brand px-8 text-navy hover:bg-brand/90">
             <a href="#contact">
               Schedule a Consultation
               <ArrowRight className="size-4" />

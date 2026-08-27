@@ -26,7 +26,7 @@ export function WhyClientsComeBack() {
                 className="group flex h-full flex-col rounded-xl border border-border/60 bg-card p-6 transition-shadow hover:shadow-xl"
               >
                 <div className="mb-4 flex items-center gap-3">
-                  <span className="flex size-10 items-center justify-center rounded-lg bg-navy text-sm font-bold text-gold">
+                  <span className="flex size-10 items-center justify-center rounded-lg bg-navy text-sm font-bold text-brand">
                     {reason.number}
                   </span>
                   <div className="h-px flex-1 bg-border/60" />
@@ -36,8 +36,8 @@ export function WhyClientsComeBack() {
                   {reason.description}
                 </p>
                 {reason.highlight && (
-                  <p className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-gold">
-                    <span className="size-1.5 rounded-full bg-gold" />
+                  <p className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-brand">
+                    <span className="size-1.5 rounded-full bg-brand" />
                     {reason.highlight}
                   </p>
                 )}
@@ -49,7 +49,7 @@ export function WhyClientsComeBack() {
         <Reveal className="mt-12 flex justify-center" delay={0.1}>
           <a
             href="#services"
-            className="group inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-gold"
+            className="group inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-brand"
           >
             Explore what we build
             <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />

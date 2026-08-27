@@ -36,7 +36,7 @@ export function WhatWeBuild() {
                   <motion.div
                     whileHover={{ scale: 1.08, rotate: -3 }}
                     transition={{ type: "spring", stiffness: 300, damping: 15 }}
-                    className="mb-5 flex size-12 items-center justify-center rounded-xl bg-navy text-gold"
+                    className="mb-5 flex size-12 items-center justify-center rounded-xl bg-navy text-brand"
                   >
                     <Icon className="size-6" />
                   </motion.div>
@@ -57,7 +57,7 @@ export function WhatWeBuild() {
 
                   <a
                     href="#contact"
-                    className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-gold transition-colors hover:text-primary"
+                    className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand transition-colors hover:text-primary"
                   >
                     Learn more
                     <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />

@@ -31,7 +31,7 @@ export function About() {
               <div className="absolute inset-0 bg-gradient-to-t from-navy/50 to-transparent" />
               {/* Floating badge */}
               <div className="absolute bottom-4 left-4 rounded-xl border border-white/10 bg-navy/90 px-4 py-3 backdrop-blur-md">
-                <p className="text-2xl font-bold text-gold">5+ yrs</p>
+                <p className="text-2xl font-bold text-brand">5+ yrs</p>
                 <p className="text-xs text-white/70">Delivering at scale</p>
               </div>
             </div>
@@ -68,7 +68,7 @@ export function About() {
         <div className="mt-20 grid gap-6 md:grid-cols-2">
           <Reveal>
             <Card className="h-full border-border/50 p-8">
-              <div className="mb-4 flex size-12 items-center justify-center rounded-xl bg-navy text-gold">
+              <div className="mb-4 flex size-12 items-center justify-center rounded-xl bg-navy text-brand">
                 <Eye className="size-6" />
               </div>
               <h3 className="text-xl font-bold">Our Vision</h3>
@@ -81,7 +81,7 @@ export function About() {
           </Reveal>
           <Reveal delay={0.12}>
             <Card className="h-full border-border/50 p-8">
-              <div className="mb-4 flex size-12 items-center justify-center rounded-xl bg-gold/15 text-gold">
+              <div className="mb-4 flex size-12 items-center justify-center rounded-xl bg-brand/15 text-brand">
                 <Target className="size-6" />
               </div>
               <h3 className="text-xl font-bold">Our Mission</h3>
@@ -114,7 +114,7 @@ export function About() {
                     <motion.div
                       whileHover={{ scale: 1.1, rotate: -4 }}
                       transition={{ type: "spring", stiffness: 300, damping: 15 }}
-                      className="mb-4 flex size-11 items-center justify-center rounded-xl bg-navy text-gold"
+                      className="mb-4 flex size-11 items-center justify-center rounded-xl bg-navy text-brand"
                     >
                       <Icon className="size-5" />
                     </motion.div>
@@ -147,10 +147,10 @@ export function About() {
               return (
                 <RevealItem key={lead.role} as="div" className="h-full">
                   <Card className="group h-full border-border/50 p-6 text-center transition-shadow hover:shadow-lg">
-                    <div className="mx-auto mb-4 flex size-14 items-center justify-center rounded-2xl bg-gradient-to-br from-navy to-navy-deep text-gold">
+                    <div className="mx-auto mb-4 flex size-14 items-center justify-center rounded-2xl bg-gradient-to-br from-navy to-navy-deep text-brand">
                       <Icon className="size-6" />
                     </div>
-                    <p className="text-xs font-semibold uppercase tracking-wide text-gold">
+                    <p className="text-xs font-semibold uppercase tracking-wide text-brand">
                       {lead.role}
                     </p>
                     <h4 className="mt-1 font-semibold">{lead.name}</h4>
@@ -168,7 +168,7 @@ export function About() {
         <Reveal className="mt-16 text-center" delay={0.1}>
           <a
             href="#contact"
-            className="group inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-gold"
+            className="group inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-brand"
           >
             Want to learn how this translates into your project?
             <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />

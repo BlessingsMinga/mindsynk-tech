@@ -43,9 +43,9 @@ export function Contact() {
                     <a
                       key={detail.label}
                       href={detail.href}
-                      className="group flex flex-col gap-3 rounded-xl border border-border/60 bg-card p-5 transition-colors hover:border-gold/40 hover:bg-accent/30"
+                      className="group flex flex-col gap-3 rounded-xl border border-border/60 bg-card p-5 transition-colors hover:border-brand/40 hover:bg-accent/30"
                     >
-                      <div className="flex size-10 items-center justify-center rounded-lg bg-navy text-gold transition-transform group-hover:scale-110">
+                      <div className="flex size-10 items-center justify-center rounded-lg bg-navy text-brand transition-transform group-hover:scale-110">
                         <Icon className="size-4.5" />
                       </div>
                       <div className="min-w-0">
@@ -72,7 +72,7 @@ export function Contact() {
                         key={social.label}
                         href={social.href}
                         aria-label={social.label}
-                        className="flex size-10 items-center justify-center rounded-lg border border-border/60 text-muted-foreground transition-colors hover:border-gold/40 hover:bg-gold/10 hover:text-gold"
+                        className="flex size-10 items-center justify-center rounded-lg border border-border/60 text-muted-foreground transition-colors hover:border-brand/40 hover:bg-brand/10 hover:text-brand"
                       >
                         <Icon className="size-4" />
                       </a>
@@ -112,7 +112,7 @@ export function Contact() {
         <Reveal className="mt-12 text-center" delay={0.1}>
           <a
             href={`mailto:${companyInfo.email}`}
-            className="group inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-gold"
+            className="group inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-brand"
           >
             Or email us directly at {companyInfo.email}
             <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />

@@ -76,3 +76,25 @@ Stage Summary:
 - New section structure mirrors Glitex: Hero (split-screen) → Why Clients Come Back → What We Build → 3-Phase Process (dark navy) → Case Studies (Challenge/Solution/Outcome) → About → Security & Compliance (dark navy) → Contact.
 - Kept the official MindSynk logo (navy text works on cream/white; dark-mode variant swaps navy→white) and the original functional stack (react-hook-form + zod contact form, Framer Motion scroll/hover animations, next-themes dark mode, responsive mobile menu).
 - Lint clean, dev server healthy, all interactions verified in-browser.
+
+---
+Task ID: 4
+Agent: Main (Z.ai Code)
+Task: Make the site follow the MindSynk logo's actual brand colors (vibrant orange #f15922 + dark navy #1d1e32) instead of the Glitex gold palette, while keeping the Glitex-inspired enterprise layout.
+
+Work Log:
+- Computed the exact oklch values for the logo's two colours via a Python sRGB→OKLch converter: orange #f15922 → oklch(0.66 0.20 38), navy #1d1e32 → oklch(0.24 0.04 281).
+- Rewrote globals.css to use these exact logo colours:
+  - Registered a `--color-brand` Tailwind token (light oklch(0.66 0.20 38), dark oklch(0.72 0.18 40)) so `text-brand`, `bg-brand`, `border-brand`, `bg-brand/10` etc. generate automatically with opacity support.
+  - Set `--primary` to the logo navy oklch(0.24 0.04 281) — default buttons + structural text now match the logo wordmark.
+  - Set `--accent` to a light orange tint (oklch(0.945 0.03 50)) for warm hover surfaces, `--ring` to brand orange.
+  - Repointed `.bg-navy` / `.bg-navy-deep` utilities to the exact logo navy, renamed `.text-gold`→removed (covered by `text-brand`), `.text-gradient-gold`→`.text-gradient-brand`, `.glow-gold`→`.glow-brand`, orange-tinted scrollbar.
+- Renamed every `gold` → `brand` occurrence across all 10 component files (navbar, footer, and 8 sections) via sed — 60 references total, verified 0 `gold` matches remain afterward.
+- Extended the Logo component with a `variant` prop ("auto" | "dark"): "auto" follows the active theme (CSS dark: swap), "dark" always renders the white-text variant for use on dark surfaces regardless of theme.
+- Updated the Footer to use `<Logo variant="dark" />` so the wordmark stays legible on the dark-navy footer in light mode (previously the navy-text logo was invisible on navy).
+- Verified with Agent Browser: `--brand` token resolves to lab(58.87% 58.7 61.1) = exact logo orange #f15922; `--primary`/hero bg resolves to lab(11.42% 4.5 -14.2) = exact logo navy #1d1e32; CTA buttons + accent text are orange; contact form submits (POST /api/contact 200, "Message received"); navbar logo shows navy-text variant in light mode and white-text variant in dark mode; footer shows forced white-text variant on navy. Lint passes clean, no console/page errors.
+
+Stage Summary:
+- The site now uses the MindSynk logo's exact two colours: vibrant orange #f15922 as the energetic brand accent (CTAs, highlights, numbers, badges, scrollbar) and dark navy #1d1e32 as the structural primary (dark sections, body text, default buttons).
+- The Glitex-inspired enterprise layout (split hero, 3-phase process, Challenge/Solution/Outcome case studies, security pillars) is preserved — only the colour palette swapped from gold to the logo's orange.
+- Logo legibility fixed on all surfaces: light navbar (navy text), dark-mode navbar (auto white text), and dark navy footer (forced white-text variant).
