@@ -1,56 +1,49 @@
+import Image from "next/image"
 import { cn } from "@/lib/utils"
 
 type LogoProps = {
   className?: string
-  showText?: boolean
+  /** Height of the logo image in pixels. Wordmark scales proportionally. */
+  height?: number
 }
 
 /**
- * MindSynk Technologies brand mark — an abstract node-network
- * icon representing "synk" (synchronised minds & technology).
+ * MindSynk Technologies brand logo.
+ *
+ * Uses the official MindSynk_Full.png asset — geometric icon mark +
+ * "MindSynk" wordmark in brand orange (#f15922) + navy (#1d1e32) on a
+ * transparent background. A dark-mode variant swaps the navy for white so
+ * the wordmark stays legible on dark surfaces.
+ *
+ * The two variants are toggled purely with CSS (dark: variant) to avoid any
+ * client-side hydration flash.
  */
-export function Logo({ className, showText = true }: LogoProps) {
+export function Logo({ className, height = 34 }: LogoProps) {
+  // Source PNG is 1731×372 → aspect ratio ≈ 4.654
+  const width = Math.round(height * 4.654)
+
   return (
-    <span className={cn("flex items-center gap-2.5", className)}>
-      <svg
-        width="36"
-        height="36"
-        viewBox="0 0 40 40"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        aria-hidden="true"
-        className="shrink-0"
-      >
-        <defs>
-          <linearGradient id="ms-grad" x1="0" y1="0" x2="40" y2="40">
-            <stop offset="0%" stopColor="oklch(0.52 0.13 165)" />
-            <stop offset="100%" stopColor="oklch(0.6 0.14 185)" />
-          </linearGradient>
-        </defs>
-        {/* Rounded square backdrop */}
-        <rect width="40" height="40" rx="11" fill="url(#ms-grad)" />
-        {/* Node-network mark */}
-        <circle cx="13" cy="14" r="3.2" fill="white" />
-        <circle cx="27" cy="13" r="2.4" fill="white" fillOpacity="0.85" />
-        <circle cx="20" cy="24" r="3.6" fill="white" />
-        <circle cx="28" cy="27" r="2" fill="white" fillOpacity="0.7" />
-        <path
-          d="M13 14L20 24M27 13L20 24M20 24L28 27"
-          stroke="white"
-          strokeWidth="1.6"
-          strokeLinecap="round"
-        />
-      </svg>
-      {showText && (
-        <span className="flex flex-col leading-none">
-          <span className="text-base font-bold tracking-tight">
-            MindSynk
-          </span>
-          <span className="text-[0.625rem] font-medium uppercase tracking-[0.18em] text-muted-foreground">
-            Technologies
-          </span>
-        </span>
-      )}
+    <span className={cn("flex items-center", className)}>
+      {/* Light mode variant */}
+      <Image
+        src="/MindSynk_Full.png"
+        alt="MindSynk Technologies"
+        width={width}
+        height={height}
+        priority
+        className="h-auto w-auto select-none dark:hidden"
+        style={{ height }}
+      />
+      {/* Dark mode variant (navy → white) */}
+      <Image
+        src="/MindSynk_Full-dark.png"
+        alt="MindSynk Technologies"
+        width={width}
+        height={height}
+        priority
+        className="hidden h-auto w-auto select-none dark:block"
+        style={{ height }}
+      />
     </span>
   )
 }

@@ -30,6 +30,10 @@ export const metadata: Metadata = {
     "B2B technology partner",
   ],
   authors: [{ name: "MindSynk Technologies" }],
+  icons: {
+    icon: "/MindSynk_Full.png",
+    apple: "/MindSynk_Full.png",
+  },
   openGraph: {
     title: "MindSynk Technologies — Powering Progress Through Technology",
     description:

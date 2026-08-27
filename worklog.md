@@ -24,3 +24,24 @@ Stage Summary:
 - Brand: emerald/teal primary, "Powering Progress Through Technology" tagline, B2B professional tone.
 - All images are placeholders from web search (clearly flagged in footer) for later replacement with real branding assets.
 - Fully responsive (mobile-first), accessible (ARIA labels, semantic HTML, keyboard nav, screen-reader titles), with dark mode toggle and rich hover/scroll animations.
+
+---
+Task ID: 2
+Agent: Main (Z.ai Code)
+Task: Integrate the user-uploaded MindSynk_Full.png logo and switch the entire site color scheme to match the logo's brand colors.
+
+Work Log:
+- Located uploaded logo at /home/z/my-project/upload/MindSynk_Full.png.
+- Used VLM skill (z-ai vision CLI) to analyse the logo: identified text "MindSynk" + "Technology" subtitle, geometric hexagon/diamond icon mark, horizontal layout.
+- Inspected the PNG with Python PIL: confirmed RGBA mode with a transparent background (69.8% of pixels fully transparent) and exactly two brand colours — orange #f15922 (icon + letter "k", 83556 px) and dark navy #1d1e32 (main text, 100121 px).
+- Copied MindSynk_Full.png to public/MindSynk_Full.png and public/logo.png.
+- Generated a dark-mode variant public/MindSynk_Full-dark.png via PIL: replaced navy pixels (#1d1e32) with warm-white (#f8f8fa) while keeping the orange icon/"k" intact, so the wordmark stays legible on dark backgrounds.
+- Rewrote globals.css: replaced the entire emerald/teal palette with the brand orange+navy. Light mode: --primary oklch(0.65 0.19 42) [orange #f15922], --foreground oklch(0.24 0.025 270) [navy #1d1e32], --accent orange-tinted, --chart-2 amber oklch(0.72 0.16 62) as gradient partner. Dark mode: --primary brightened to oklch(0.7 0.17 44), --background dark navy oklch(0.19 0.015 270). Updated .text-gradient (orange→amber), .bg-grid (warm-tinted lines), scrollbar, and renamed .glow-emerald → .glow-orange.
+- Rewrote the Logo component to render the actual MindSynk_Full.png via next/image, with a CSS-driven light/dark swap (light variant `dark:hidden`, dark variant `hidden dark:block`) to avoid hydration flash — no client-side theme detection needed.
+- Updated layout.tsx metadata.icons to use /MindSynk_Full.png as the favicon + apple icon.
+- Verified with Agent Browser: logo image loads through next/image optimizer, light-mode navbar shows full-color logo, dark-mode toggle correctly swaps to the MindSynk_Full-dark.png variant (navy→white) automatically, computed --primary resolves to vibrant orange (lab 57.9% a53.8 b64.3), CTA button has bg-primary text-primary-foreground classes, footer logo renders. No console/page errors. Lint passes clean.
+
+Stage Summary:
+- Brand identity now fully aligned with the supplied logo: vibrant orange (#f15922) primary + dark navy (#1d1e32) text/foreground, warm amber gradient accents.
+- The official MindSynk_Full.png logo is used in the navbar, footer, and favicon — with an auto-generated dark-mode variant for legibility on dark surfaces.
+- All previously built sections (hero, services, why-mindsynk, about, portfolio, contact, footer, CTA) now carry the orange/navy brand palette via semantic Tailwind tokens, so no component-level edits were needed beyond the Logo + globals.css.
