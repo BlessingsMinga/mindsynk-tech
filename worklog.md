@@ -118,3 +118,22 @@ Stage Summary:
 - SEO preserved via a visually-hidden <h1>; accessibility preserved via role="img" + aria-label on the WarpText container.
 - The component respects prefers-reduced-motion (disables ambient + pointer motion) and pauses its RAF loop when off-screen (IntersectionObserver) or when the tab is hidden, so it has no performance cost when not visible.
 - ogl dependency added; lint clean; no runtime errors.
+
+---
+Task ID: 6
+Agent: Main (Z.ai Code)
+Task: Integrate the React Bits Aurora component (TypeScript + CSS variant, ogl dependency) as an animated background on the landing page hero.
+
+Work Log:
+- `ogl` was already installed (from the WarpText integration in Task 5).
+- Created `/src/components/aurora.css` (container fills 100% w/h, canvas block-display).
+- Created `/src/components/aurora.tsx` — the full React Bits Aurora source with `"use client"`. Renders a full-bleed WebGL triangle shader that paints an animated simplex-noise aurora gradient (orange→amber→violet) flowing across the background.
+- Integrated Aurora into the hero (`src/components/sections/hero.tsx`) as an absolutely-positioned background layer (`absolute inset-0 -z-10`) behind the content, with a faint grid overlay (opacity 0.10) and no heavy vignette so the aurora glow stays visible.
+- Tuned props for the MindSynk brand: colorStops ["#ff6a3d", "#ffb86c", "#9b7aff"] (brightened brand orange + amber + violet), blend 1.15 (wide glow band that extends down behind the headline), amplitude 1.6 (taller aurora ribbons), speed 0.4 (slow, professional drift).
+- Diagnosed and fixed a critical stacking-context bug: the `<section>` used `position: relative` but did NOT create a stacking context, so its `-z-10` aurora child painted *behind* the section's own `bg-navy` background — making the aurora invisible. Added `isolate` (isolation: isolate) to the section so it becomes its own stacking context; now the `-z-10` aurora composites above the navy background but below the content, as intended.
+- Verified with Agent Browser + pixel analysis + VLM: after the fix, the hero background shows a prominent flowing aurora (orange→amber→violet) — sample pixel at top = RGB [208,91,52] (bright warm orange, R>B confirming warmth), mean background RGB [101,56,42] at top fading to [63,39,41] mid-hero. VLM confirmed "very prominent and colorful gradient effect that resembles a flowing aurora" with "navy → burnt orange → purple" transitions and the white headline remains highly readable. Both the Aurora canvas (1280×1163) and the WarpText canvas (576×256) render simultaneously with no conflicts. Lint passes clean, no console/page errors in light or dark mode.
+
+Stage Summary:
+- The landing page hero now has an animated Aurora background: a flowing simplex-noise aurora gradient in brand orange + amber + violet, drifting slowly across the dark navy hero.
+- Root-caused and fixed the invisible-background bug (missing `isolate` on the section → negative-z child was painted behind the section's own opaque background).
+- The aurora + WarpText headline + grid overlay all composite correctly in the same stacking context; text contrast preserved; dark mode works; lint clean.

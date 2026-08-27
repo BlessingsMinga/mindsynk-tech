@@ -5,6 +5,7 @@ import { ArrowRight, Phone, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Counter } from "@/components/counter"
 import WarpText from "@/components/warp-text"
+import Aurora from "@/components/aurora"
 import { stats, companyInfo } from "@/lib/data"
 
 const container = {
@@ -24,18 +25,20 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative overflow-hidden bg-navy pt-28 pb-16 sm:pt-32 lg:pt-40 lg:pb-24"
+      className="relative isolate overflow-hidden bg-navy pt-28 pb-16 sm:pt-32 lg:pt-40 lg:pb-24"
       aria-label="Hero"
     >
-      {/* Grid pattern background */}
-      <div className="absolute inset-0 -z-10 bg-grid opacity-40" aria-hidden="true" />
-      {/* Gradient orbs */}
-      <motion.div
-        className="absolute -top-24 left-1/3 -z-10 size-[32rem] rounded-full bg-brand/10 blur-3xl"
-        aria-hidden="true"
-        animate={{ x: [0, 40, 0], y: [0, 30, 0] }}
-        transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-      />
+      {/* Aurora animated background */}
+      <div className="absolute inset-0 -z-10" aria-hidden="true">
+        <Aurora
+          colorStops={["#ff6a3d", "#ffb86c", "#9b7aff"]}
+          blend={1.15}
+          amplitude={1.6}
+          speed={0.4}
+        />
+      </div>
+      {/* Grid pattern overlay */}
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-grid opacity-10" aria-hidden="true" />
 
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8">
         {/* Left content */}
