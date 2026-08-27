@@ -5,12 +5,13 @@ import {
   Megaphone,
   BarChart3,
   Palette,
-  Target,
-  Eye,
-  Lightbulb,
-  Users,
-  HeartHandshake,
+  Brain,
+  Database,
+  Plug,
   ShieldCheck,
+  Lock,
+  Eye,
+  FileCheck,
   type LucideIcon,
 } from "lucide-react"
 
@@ -19,6 +20,7 @@ export type Service = {
   title: string
   short: string
   icon: LucideIcon
+  outcome: string
   details: string[]
 }
 
@@ -28,6 +30,7 @@ export const services: Service[] = [
     title: "Software Development",
     short: "Web & mobile applications engineered for scale, speed, and reliability.",
     icon: Code2,
+    outcome: "Reliable systems your organisation can depend on.",
     details: [
       "Custom web platforms built with React, Next.js, and modern TypeScript stacks.",
       "Native and cross-platform mobile apps for iOS and Android.",
@@ -40,6 +43,7 @@ export const services: Service[] = [
     title: "Cloud Computing & Migration",
     short: "Move to the cloud with confidence — architecture, migration, and optimisation.",
     icon: Cloud,
+    outcome: "Lower infrastructure costs and higher uptime.",
     details: [
       "Cloud strategy and architecture for AWS, Azure, and Google Cloud.",
       "Seamless migration of legacy systems with zero-downtime cutovers.",
@@ -52,6 +56,7 @@ export const services: Service[] = [
     title: "IT Consultancy & Networking",
     short: "Strategic IT guidance and robust networking infrastructure for growing businesses.",
     icon: Network,
+    outcome: "Infrastructure that scales with your operations.",
     details: [
       "IT infrastructure audits and digital transformation roadmaps.",
       "Network design, installation, and security hardening.",
@@ -64,6 +69,7 @@ export const services: Service[] = [
     title: "Digital Marketing & Social Media",
     short: "Data-driven campaigns that grow your audience and convert attention into revenue.",
     icon: Megaphone,
+    outcome: "Measurable growth in reach and conversions.",
     details: [
       "SEO, content strategy, and search engine marketing (SEM).",
       "Social media management across all major platforms.",
@@ -76,6 +82,7 @@ export const services: Service[] = [
     title: "Data Analytics",
     short: "Turn raw data into decisions with dashboards, models, and predictive insights.",
     icon: BarChart3,
+    outcome: "Decisions backed by accurate, timely data.",
     details: [
       "Business intelligence dashboards and real-time reporting.",
       "Data pipeline engineering and warehouse architecture.",
@@ -88,12 +95,183 @@ export const services: Service[] = [
     title: "Graphic Design & UI/UX",
     short: "Human-centred design that makes products beautiful, intuitive, and memorable.",
     icon: Palette,
+    outcome: "Products your users genuinely love to use.",
     details: [
       "User research, wireframes, and interactive prototypes.",
       "Design systems and component libraries for scalable products.",
       "Brand identity, logo design, and visual guidelines.",
       "Usability testing and conversion-focused interface design.",
     ],
+  },
+]
+
+export type Reason = {
+  number: string
+  title: string
+  description: string
+  highlight?: string
+}
+
+export const reasons: Reason[] = [
+  {
+    number: "01",
+    title: "We Understand Organisational Complexity",
+    description:
+      "We design systems that fit into complex organisational environments. From NGOs operating across multiple countries to enterprises handling sensitive data, we understand workflows, compliance, and scale.",
+    highlight: "5+ countries supported",
+  },
+  {
+    number: "02",
+    title: "AI & Automation at the Core",
+    description:
+      "We embed intelligent automation, predictive analytics, and AI assistants into the systems we build — so your organisation makes faster, smarter, data-driven decisions.",
+  },
+  {
+    number: "03",
+    title: "Strong Focus on Security & Data Protection",
+    description:
+      "Every system is designed with data protection, access control, and auditability as foundational requirements — not afterthoughts. Compliance is built in from day one.",
+  },
+  {
+    number: "04",
+    title: "Long-term Partnership Model",
+    description:
+      "We don't disappear after delivery. We provide SLA-backed support, ongoing patching, and continuous improvement so your systems evolve with your organisation.",
+  },
+]
+
+export type Stat = {
+  value: number
+  suffix: string
+  label: string
+}
+
+export const stats: Stat[] = [
+  { value: 50, suffix: "+", label: "Enterprise Systems Delivered" },
+  { value: 30, suffix: "+", label: "Institutional Clients Served" },
+  { value: 5, suffix: "+", label: "Countries of Active Deployment" },
+  { value: 5, suffix: "yr", label: "Delivering at Scale" },
+]
+
+export type Phase = {
+  number: string
+  label: string
+  title: string
+  description: string
+}
+
+export const processPhases: Phase[] = [
+  {
+    number: "01",
+    label: "PHASE ONE",
+    title: "Discovery & Systems Assessment",
+    description:
+      "We start by understanding your operations, infrastructure, compliance needs, and goals before implementation. This covers stakeholder workshops, technical audits, governance mapping, and an architecture recommendation.",
+  },
+  {
+    number: "02",
+    label: "PHASE TWO",
+    title: "Architecture & Development",
+    description:
+      "We build to spec with clear milestones, regular reviews, and rigorous QA throughout. Every stage includes security testing, system integration, and full documentation.",
+  },
+  {
+    number: "03",
+    label: "PHASE THREE",
+    title: "Deployment & Long-Term Support",
+    description:
+      "We manage rollout, train your team, and provide SLA-backed support that keeps your system performing and evolving with ongoing patching and continuous improvement.",
+  },
+]
+
+export type CaseStudy = {
+  id: string
+  title: string
+  sector: string
+  region: string
+  image: string
+  challenge: string
+  solution: string
+  outcome: string
+  outcomeValue: string
+  tags: string[]
+}
+
+export const caseStudies: CaseStudy[] = [
+  {
+    id: "medialert",
+    title: "MediAlert",
+    sector: "Healthcare Platform",
+    region: "Malawi",
+    image: "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/098bf667ba34.png",
+    challenge:
+      "Patient care was fragmented across facilities with no centralised medication tracking, leading to missed reminders, poor adherence, and limited visibility for clinicians.",
+    solution:
+      "A secure, patient-facing platform that digitises medication reminders, vitals tracking, and emergency alerts — giving clinicians real-time visibility while maintaining strict patient confidentiality.",
+    outcome: "Faster care coordination and a better patient experience.",
+    outcomeValue: "97%",
+    tags: ["React Native", "Node.js", "AWS", "FHIR API"],
+  },
+  {
+    id: "pzahome",
+    title: "PezaHome",
+    sector: "Real Estate Marketplace",
+    region: "East Africa",
+    image: "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/1d27ee944461.png",
+    challenge:
+      "Property listings were scattered across informal channels with no verification, making transactions slow, opaque, and difficult to trust for buyers and agents alike.",
+    solution:
+      "A full-stack marketplace with virtual tours, verified listings, mortgage calculators, and agent dashboards — bringing transparency and speed to property transactions.",
+    outcome: "Trusted, data-driven property transactions at scale.",
+    outcomeValue: "95%",
+    tags: ["Next.js", "PostgreSQL", "Mapbox", "Stripe"],
+  },
+  {
+    id: "agripay",
+    title: "AgriPay",
+    sector: "FinTech Solution",
+    region: "Malawi & Zambia",
+    image: "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/2c3d55f59f1a.png",
+    challenge:
+      "Agricultural cooperatives relied on manual, cash-based processes that were slow, error-prone, and left members without digital records of their transactions.",
+    solution:
+      "A mobile wallet and payment system built for cooperatives — enabling seamless transactions, digital record-keeping, and offline-first USSD access for rural members.",
+    outcome: "Trusted, data-driven financial inclusion at scale.",
+    outcomeValue: "92%",
+    tags: ["Flutter", "Go", "Postgres", "USSD"],
+  },
+]
+
+export type SecurityPillar = {
+  title: string
+  description: string
+  icon: LucideIcon
+}
+
+export const securityPillars: SecurityPillar[] = [
+  {
+    title: "Secure Development Lifecycle",
+    description:
+      "Security requirements are integrated from design through deployment — not applied as a post-build layer.",
+    icon: ShieldCheck,
+  },
+  {
+    title: "Role-Based Access Control",
+    description:
+      "Granular access permissions ensuring staff and stakeholders see only the data and functions relevant to their role.",
+    icon: Lock,
+  },
+  {
+    title: "Data Residency & Encryption",
+    description:
+      "Data storage location policies and end-to-end encryption aligned to client jurisdiction and regulatory requirements.",
+    icon: Database,
+  },
+  {
+    title: "Audit Logging & Monitoring",
+    description:
+      "Comprehensive activity logs and real-time monitoring to support compliance reporting and incident investigation.",
+    icon: FileCheck,
   },
 ]
 
@@ -108,7 +286,7 @@ export const coreValues: CoreValue[] = [
     title: "Strategic Planning",
     description:
       "We start every engagement with a clear roadmap, ensuring every technical decision serves your long-term business goals.",
-    icon: Target,
+    icon: Eye,
   },
   {
     title: "Transparency",
@@ -120,19 +298,13 @@ export const coreValues: CoreValue[] = [
     title: "Innovation",
     description:
       "We relentlessly explore emerging technologies to give our clients a durable competitive edge.",
-    icon: Lightbulb,
-  },
-  {
-    title: "Collaboration",
-    description:
-      "We work as an extension of your team, blending our technical depth with your domain expertise.",
-    icon: Users,
+    icon: Brain,
   },
   {
     title: "Customer-Centricity",
     description:
       "Every solution is designed around your users' real needs and your business's measurable outcomes.",
-    icon: HeartHandshake,
+    icon: Palette,
   },
 ]
 
@@ -174,73 +346,12 @@ export const teamLeads: TeamMember[] = [
   },
 ]
 
-export type Project = {
-  id: string
-  title: string
-  category: string
-  description: string
-  image: string
-  tags: string[]
-  link?: string
-}
-
-export const projects: Project[] = [
-  {
-    id: "medialert",
-    title: "MediAlert",
-    category: "Healthcare Platform",
-    description:
-      "A patient-facing mobile platform for medication reminders, vitals tracking, and emergency alerts — keeping care connected 24/7.",
-    image: "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/098bf667ba34.png",
-    tags: ["React Native", "Node.js", "AWS", "FHIR API"],
-  },
-  {
-    id: "pzahome",
-    title: "PezaHome",
-    category: "Real Estate Marketplace",
-    description:
-      "A full-stack property listing platform with virtual tours, mortgage calculators, and agent dashboards for the East African market.",
-    image: "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/1d27ee944461.png",
-    tags: ["Next.js", "PostgreSQL", "Mapbox", "Stripe"],
-  },
-  {
-    id: "agripay",
-    title: "AgriPay",
-    category: "FinTech Solution",
-    description:
-      "A mobile wallet and payment system built for agricultural cooperatives — enabling seamless transactions and digital records.",
-    image: "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/2c3d55f59f1a.png",
-    tags: ["Flutter", "Go", "Postgres", "USSD"],
-  },
-  {
-    id: "insighthub",
-    title: "InsightHub",
-    category: "Data Analytics Dashboard",
-    description:
-      "A business intelligence platform that unifies data sources into real-time dashboards, forecasts, and automated reports.",
-    image: "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/4b34883d6c00.png",
-    tags: ["React", "Python", "BigQuery", "D3.js"],
-  },
-]
-
-export type Stat = {
-  value: number
-  suffix: string
-  label: string
-}
-
-export const stats: Stat[] = [
-  { value: 50, suffix: "+", label: "Projects Delivered" },
-  { value: 30, suffix: "+", label: "Happy Clients" },
-  { value: 5, suffix: "yr", label: "Industry Experience" },
-  { value: 99, suffix: "%", label: "Client Retention" },
-]
-
 export const navLinks = [
   { label: "Home", href: "#home" },
   { label: "Services", href: "#services" },
+  { label: "Process", href: "#process" },
+  { label: "Work", href: "#work" },
   { label: "About", href: "#about" },
-  { label: "Work", href: "#portfolio" },
   { label: "Contact", href: "#contact" },
 ]
 
@@ -251,4 +362,5 @@ export const companyInfo = {
   phone: "+265 991 234 567",
   location: "Lilongwe, Malawi",
   address: "Area 47, Lilongwe, Malawi",
+  hours: "Mon - Fri: 08:00am - 05:00pm",
 }

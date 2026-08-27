@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import { motion } from "framer-motion"
-import { Menu, ArrowRight } from "lucide-react"
+import { Menu, X, Phone, Mail, Clock, MapPin, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
   Sheet,
@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/sheet"
 import { Logo } from "@/components/logo"
 import { ThemeToggle } from "@/components/theme-toggle"
-import { navLinks } from "@/lib/data"
+import { navLinks, companyInfo } from "@/lib/data"
 import { cn } from "@/lib/utils"
 
 export function Navbar() {
@@ -30,17 +30,50 @@ export function Navbar() {
 
   return (
     <motion.header
-      initial={{ y: -80, opacity: 0 }}
+      initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
       className="fixed inset-x-0 top-0 z-50"
     >
+      {/* Utility top bar */}
+      <div className="hidden border-b border-white/10 bg-navy-deep text-white/70 lg:block">
+        <div className="mx-auto flex h-9 max-w-7xl items-center justify-between px-8 text-xs">
+          <div className="flex items-center gap-6">
+            <span className="flex items-center gap-1.5">
+              <MapPin className="size-3.5 text-gold" />
+              {companyInfo.address}
+            </span>
+            <span className="flex items-center gap-1.5">
+              <Clock className="size-3.5 text-gold" />
+              {companyInfo.hours}
+            </span>
+          </div>
+          <div className="flex items-center gap-6">
+            <a
+              href={`mailto:${companyInfo.email}`}
+              className="flex items-center gap-1.5 transition-colors hover:text-gold"
+            >
+              <Mail className="size-3.5 text-gold" />
+              {companyInfo.email}
+            </a>
+            <a
+              href={`tel:${companyInfo.phone.replace(/\s/g, "")}`}
+              className="flex items-center gap-1.5 transition-colors hover:text-gold"
+            >
+              <Phone className="size-3.5 text-gold" />
+              {companyInfo.phone}
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Main nav */}
       <div
         className={cn(
           "transition-all duration-300",
           scrolled
-            ? "border-b border-border/60 bg-background/80 backdrop-blur-xl shadow-sm"
-            : "bg-transparent"
+            ? "border-b border-border/60 bg-background/90 backdrop-blur-xl shadow-sm"
+            : "bg-background"
         )}
       >
         <nav
@@ -52,16 +85,16 @@ export function Navbar() {
             className="rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-ring"
             aria-label="MindSynk Technologies home"
           >
-            <Logo />
+            <Logo height={30} />
           </a>
 
-          {/* Desktop nav */}
-          <ul className="hidden items-center gap-1 md:flex">
+          {/* Centered desktop nav */}
+          <ul className="hidden items-center gap-1 lg:flex">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  className="rounded-md px-3.5 py-2 text-sm font-medium text-foreground/70 transition-colors hover:bg-secondary hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                 >
                   {link.label}
                 </a>
@@ -71,9 +104,9 @@ export function Navbar() {
 
           <div className="flex items-center gap-2">
             <ThemeToggle />
-            <Button asChild className="hidden sm:inline-flex">
+            <Button asChild className="hidden rounded-full sm:inline-flex">
               <a href="#contact">
-                Get a Free Quote
+                Schedule a Meeting
                 <ArrowRight className="size-4" />
               </a>
             </Button>
@@ -84,7 +117,7 @@ export function Navbar() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="md:hidden"
+                  className="lg:hidden"
                   aria-label="Open navigation menu"
                 >
                   <Menu className="size-5" />
@@ -96,29 +129,43 @@ export function Navbar() {
                   Navigate to different sections of the MindSynk Technologies website.
                 </SheetDescription>
                 <div className="flex items-center justify-between px-2 pt-2">
-                  <Logo />
+                  <Logo height={28} />
                 </div>
                 <nav className="mt-6 flex flex-col gap-1 px-2" aria-label="Mobile navigation">
                   {navLinks.map((link) => (
                     <SheetClose asChild key={link.href}>
                       <a
                         href={link.href}
-                        className="rounded-lg px-3 py-3 text-base font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
+                        className="rounded-lg px-3 py-3 text-base font-medium text-foreground/70 transition-colors hover:bg-secondary hover:text-foreground"
                       >
                         {link.label}
                       </a>
                     </SheetClose>
                   ))}
                 </nav>
-                <div className="mt-auto px-2 pb-4">
+                <div className="mt-auto space-y-3 px-2 pb-4">
                   <SheetClose asChild>
-                    <Button asChild className="w-full">
+                    <Button asChild className="w-full rounded-full">
                       <a href="#contact">
-                        Get a Free Quote
+                        Schedule a Meeting
                         <ArrowRight className="size-4" />
                       </a>
                     </Button>
                   </SheetClose>
+                  <div className="space-y-1.5 border-t border-border pt-3 text-sm text-muted-foreground">
+                    <a href={`mailto:${companyInfo.email}`} className="flex items-center gap-2">
+                      <Mail className="size-4 text-gold" />
+                      {companyInfo.email}
+                    </a>
+                    <a href={`tel:${companyInfo.phone.replace(/\s/g, "")}`} className="flex items-center gap-2">
+                      <Phone className="size-4 text-gold" />
+                      {companyInfo.phone}
+                    </a>
+                    <p className="flex items-center gap-2">
+                      <MapPin className="size-4 text-gold" />
+                      {companyInfo.address}
+                    </p>
+                  </div>
                 </div>
               </SheetContent>
             </Sheet>

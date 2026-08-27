@@ -1,6 +1,6 @@
 import { Logo } from "@/components/logo"
 import { companyInfo, services, navLinks } from "@/lib/data"
-import { Facebook, Twitter, Linkedin, Instagram, ArrowUpRight } from "lucide-react"
+import { Facebook, Twitter, Linkedin, Instagram, ArrowUpRight, MapPin, Mail, Phone } from "lucide-react"
 
 const socialLinks = [
   { label: "Facebook", icon: Facebook, href: "#" },
@@ -13,14 +13,17 @@ export function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="mt-auto border-t border-border/60 bg-secondary/30">
-      <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+    <footer className="mt-auto bg-navy-deep text-white">
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-4">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Logo />
-            <p className="mt-4 max-w-xs text-sm text-muted-foreground text-pretty">
-              {companyInfo.tagline}. A B2B technology partner based in{" "}
+            <div className="rounded-lg bg-white/5 p-3 inline-block">
+              <Logo height={28} />
+            </div>
+            <p className="mt-5 max-w-xs text-sm text-white/60 text-pretty">
+              {companyInfo.tagline}. A B2B technology partner designing,
+              building, and scaling enterprise-grade digital systems from{" "}
               {companyInfo.location}.
             </p>
             <div className="mt-5 flex gap-3">
@@ -31,7 +34,7 @@ export function Footer() {
                     key={social.label}
                     href={social.href}
                     aria-label={social.label}
-                    className="flex size-9 items-center justify-center rounded-lg border border-border/60 text-muted-foreground transition-colors hover:border-primary/40 hover:bg-primary/10 hover:text-primary"
+                    className="flex size-9 items-center justify-center rounded-lg border border-white/10 text-white/60 transition-colors hover:border-gold/40 hover:bg-gold/10 hover:text-gold"
                   >
                     <Icon className="size-4" />
                   </a>
@@ -42,7 +45,7 @@ export function Footer() {
 
           {/* Quick links */}
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wide text-foreground">
+            <h3 className="text-sm font-semibold uppercase tracking-wide text-white">
               Company
             </h3>
             <ul className="mt-4 space-y-3">
@@ -50,7 +53,7 @@ export function Footer() {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="text-sm text-muted-foreground transition-colors hover:text-primary"
+                    className="text-sm text-white/60 transition-colors hover:text-gold"
                   >
                     {link.label}
                   </a>
@@ -61,7 +64,7 @@ export function Footer() {
 
           {/* Services */}
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wide text-foreground">
+            <h3 className="text-sm font-semibold uppercase tracking-wide text-white">
               Services
             </h3>
             <ul className="mt-4 space-y-3">
@@ -69,7 +72,7 @@ export function Footer() {
                 <li key={service.id}>
                   <a
                     href="#services"
-                    className="text-sm text-muted-foreground transition-colors hover:text-primary"
+                    className="text-sm text-white/60 transition-colors hover:text-gold"
                   >
                     {service.title}
                   </a>
@@ -80,31 +83,36 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wide text-foreground">
+            <h3 className="text-sm font-semibold uppercase tracking-wide text-white">
               Get in touch
             </h3>
             <ul className="mt-4 space-y-3 text-sm">
+              <li className="flex items-start gap-2.5 text-white/60">
+                <MapPin className="mt-0.5 size-4 shrink-0 text-gold" />
+                {companyInfo.address}
+              </li>
               <li>
                 <a
                   href={`mailto:${companyInfo.email}`}
-                  className="text-muted-foreground transition-colors hover:text-primary"
+                  className="flex items-start gap-2.5 text-white/60 transition-colors hover:text-gold"
                 >
+                  <Mail className="mt-0.5 size-4 shrink-0 text-gold" />
                   {companyInfo.email}
                 </a>
               </li>
               <li>
                 <a
                   href={`tel:${companyInfo.phone.replace(/\s/g, "")}`}
-                  className="text-muted-foreground transition-colors hover:text-primary"
+                  className="flex items-start gap-2.5 text-white/60 transition-colors hover:text-gold"
                 >
+                  <Phone className="mt-0.5 size-4 shrink-0 text-gold" />
                   {companyInfo.phone}
                 </a>
               </li>
-              <li className="text-muted-foreground">{companyInfo.address}</li>
             </ul>
             <a
               href="#contact"
-              className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline"
+              className="mt-5 inline-flex items-center gap-1.5 rounded-full bg-gold px-4 py-2 text-sm font-semibold text-navy transition-colors hover:bg-gold/90"
             >
               Start a project
               <ArrowUpRight className="size-3.5" />
@@ -113,11 +121,11 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border/50 pt-6 text-sm text-muted-foreground sm:flex-row">
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 text-sm text-white/50 sm:flex-row">
           <p>
             &copy; {year} {companyInfo.name}. All rights reserved.
           </p>
-          <p className="text-xs">
+          <p className="text-xs text-white/40">
             Placeholder content &amp; imagery for demonstration — replace with real assets before launch.
           </p>
         </div>

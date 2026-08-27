@@ -1,11 +1,12 @@
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { Hero } from "@/components/sections/hero"
-import { Services } from "@/components/sections/services"
-import { WhyMindSynk } from "@/components/sections/why-mindsynk"
+import { WhyClientsComeBack } from "@/components/sections/why-clients"
+import { WhatWeBuild } from "@/components/sections/what-we-build"
+import { Process } from "@/components/sections/process"
+import { CaseStudies } from "@/components/sections/case-studies"
 import { About } from "@/components/sections/about"
-import { Portfolio } from "@/components/sections/portfolio"
-import { CtaBanner } from "@/components/sections/cta-banner"
+import { Security } from "@/components/sections/security"
 import { Contact } from "@/components/sections/contact"
 
 export default function Home() {
@@ -14,11 +15,12 @@ export default function Home() {
       <Navbar />
       <main className="flex-1">
         <Hero />
-        <Services />
-        <WhyMindSynk />
+        <WhyClientsComeBack />
+        <WhatWeBuild />
+        <Process />
+        <CaseStudies />
         <About />
-        <Portfolio />
-        <CtaBanner />
+        <Security />
         <Contact />
       </main>
       <Footer />
