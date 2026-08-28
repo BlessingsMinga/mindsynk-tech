@@ -34,7 +34,8 @@ export function Footer() {
                     key={social.label}
                     href={social.href}
                     aria-label={social.label}
-                    className="flex size-9 items-center justify-center rounded-lg border border-white/10 text-white/60 transition-colors hover:border-brand/40 hover:bg-brand/10 hover:text-brand"
+                    rel="noopener noreferrer"
+                    className="flex size-10 items-center justify-center rounded-lg border border-white/10 text-white/60 transition-colors hover:border-brand/40 hover:bg-brand/10 hover:text-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
                   >
                     <Icon className="size-4" />
                   </a>
@@ -48,12 +49,12 @@ export function Footer() {
             <h3 className="text-sm font-semibold uppercase tracking-wide text-white">
               Company
             </h3>
-            <ul className="mt-4 space-y-3">
+            <ul className="mt-4 space-y-1">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="text-sm text-white/60 transition-colors hover:text-brand"
+                    className="inline-block min-h-11 py-2 text-sm text-white/60 transition-colors hover:text-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
                   >
                     {link.label}
                   </a>
@@ -67,12 +68,12 @@ export function Footer() {
             <h3 className="text-sm font-semibold uppercase tracking-wide text-white">
               Services
             </h3>
-            <ul className="mt-4 space-y-3">
+            <ul className="mt-4 space-y-1">
               {services.map((service) => (
                 <li key={service.id}>
                   <a
                     href="#services"
-                    className="text-sm text-white/60 transition-colors hover:text-brand"
+                    className="inline-block min-h-11 py-2 text-sm text-white/60 transition-colors hover:text-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
                   >
                     {service.title}
                   </a>
@@ -86,15 +87,15 @@ export function Footer() {
             <h3 className="text-sm font-semibold uppercase tracking-wide text-white">
               Get in touch
             </h3>
-            <ul className="mt-4 space-y-3 text-sm">
-              <li className="flex items-start gap-2.5 text-white/60">
+            <ul className="mt-4 space-y-1 text-sm">
+              <li className="flex min-h-11 items-start gap-2.5 py-2 text-white/60">
                 <MapPin className="mt-0.5 size-4 shrink-0 text-brand" />
                 {companyInfo.address}
               </li>
               <li>
                 <a
                   href={`mailto:${companyInfo.email}`}
-                  className="flex items-start gap-2.5 text-white/60 transition-colors hover:text-brand"
+                  className="flex min-h-11 items-start gap-2.5 py-2 text-white/60 transition-colors hover:text-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
                 >
                   <Mail className="mt-0.5 size-4 shrink-0 text-brand" />
                   {companyInfo.email}
@@ -103,7 +104,7 @@ export function Footer() {
               <li>
                 <a
                   href={`tel:${companyInfo.phone.replace(/\s/g, "")}`}
-                  className="flex items-start gap-2.5 text-white/60 transition-colors hover:text-brand"
+                  className="flex min-h-11 items-start gap-2.5 py-2 text-white/60 transition-colors hover:text-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
                 >
                   <Phone className="mt-0.5 size-4 shrink-0 text-brand" />
                   {companyInfo.phone}

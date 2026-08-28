@@ -139,6 +139,16 @@
     scroll-behavior: smooth;
     scroll-padding-top: 6rem;
   }
+  /* Consistent visible focus indicator for keyboard users on all interactive elements */
+  a:focus-visible,
+  button:focus-visible,
+  [role="button"]:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible,
+  [tabindex]:focus-visible {
+    @apply outline-2 outline-offset-2 outline-ring;
+  }
 }
 
 /* Brand navy utility — deep dark sections (logo navy #1d1e32) */

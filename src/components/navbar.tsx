@@ -136,7 +136,7 @@ export function Navbar() {
                     <SheetClose asChild key={link.href}>
                       <a
                         href={link.href}
-                        className="rounded-lg px-3 py-3 text-base font-medium text-foreground/70 transition-colors hover:bg-secondary hover:text-foreground"
+                        className="rounded-lg px-3 py-3 text-base font-medium text-foreground/70 transition-colors hover:bg-secondary hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
                       >
                         {link.label}
                       </a>
@@ -153,15 +153,15 @@ export function Navbar() {
                     </Button>
                   </SheetClose>
                   <div className="space-y-1.5 border-t border-border pt-3 text-sm text-muted-foreground">
-                    <a href={`mailto:${companyInfo.email}`} className="flex items-center gap-2">
+                    <a href={`mailto:${companyInfo.email}`} className="flex min-h-11 items-center gap-2 rounded-md px-1 py-1.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring">
                       <Mail className="size-4 text-brand" />
                       {companyInfo.email}
                     </a>
-                    <a href={`tel:${companyInfo.phone.replace(/\s/g, "")}`} className="flex items-center gap-2">
+                    <a href={`tel:${companyInfo.phone.replace(/\s/g, "")}`} className="flex min-h-11 items-center gap-2 rounded-md px-1 py-1.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring">
                       <Phone className="size-4 text-brand" />
                       {companyInfo.phone}
                     </a>
-                    <p className="flex items-center gap-2">
+                    <p className="flex min-h-11 items-center gap-2 px-1 py-1.5">
                       <MapPin className="size-4 text-brand" />
                       {companyInfo.address}
                     </p>

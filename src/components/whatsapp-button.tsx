@@ -43,7 +43,8 @@ export function WhatsAppButton() {
           whileTap={{ scale: 0.95 }}
           onHoverStart={() => setHovered(true)}
           onHoverEnd={() => setHovered(false)}
-          className="fixed bottom-5 right-5 z-50 flex items-center gap-3 sm:bottom-6 sm:right-6"
+          className="fixed right-4 z-50 flex items-center gap-3 sm:right-6"
+          style={{ bottom: "calc(env(safe-area-inset-bottom, 0px) + 1rem)" }}
         >
           {/* Tooltip label — slides in on hover (desktop only) */}
           <AnimatePresence>

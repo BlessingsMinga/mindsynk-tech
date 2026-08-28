@@ -97,6 +97,7 @@ export function ContactForm() {
         <Input
           id="name"
           placeholder="Jane Doe"
+          autoComplete="name"
           aria-invalid={!!errors.name}
           aria-describedby={errors.name ? "name-error" : undefined}
           {...register("name")}
@@ -116,6 +117,7 @@ export function ContactForm() {
           id="email"
           type="email"
           placeholder="jane@company.com"
+          autoComplete="email"
           aria-invalid={!!errors.email}
           aria-describedby={errors.email ? "email-error" : undefined}
           {...register("email")}

@@ -12,7 +12,7 @@ const socialLinks = [
   { label: "Twitter / X", icon: Twitter, href: "#" },
   { label: "LinkedIn", icon: Linkedin, href: "#" },
   { label: "Instagram", icon: Instagram, href: "#" },
-]
+] as const
 
 const contactDetails = [
   { label: "Email us", value: companyInfo.email, icon: Mail, href: `mailto:${companyInfo.email}` },
@@ -36,23 +36,23 @@ export function Contact() {
           {/* Contact info */}
           <Reveal className="lg:col-span-2">
             <div className="flex h-full flex-col gap-6">
-              <div className="grid gap-4 sm:grid-cols-2">
+              <div className="grid grid-cols-2 gap-3 sm:gap-4">
                 {contactDetails.map((detail) => {
                   const Icon = detail.icon
                   return (
                     <a
                       key={detail.label}
                       href={detail.href}
-                      className="group flex flex-col gap-3 rounded-xl border border-border/60 bg-card p-5 transition-colors hover:border-brand/40 hover:bg-accent/30"
+                      className="group flex flex-col gap-3 rounded-xl border border-border/60 bg-card p-4 transition-colors hover:border-brand/40 hover:bg-accent/30 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring sm:p-5"
                     >
                       <div className="flex size-10 items-center justify-center rounded-lg bg-navy text-brand transition-transform group-hover:scale-110">
-                        <Icon className="size-4.5" />
+                        <Icon className="size-4" />
                       </div>
                       <div className="min-w-0">
                         <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
                           {detail.label}
                         </p>
-                        <p className="mt-0.5 truncate text-sm font-medium">{detail.value}</p>
+                        <p className="mt-0.5 break-words text-sm font-medium leading-snug">{detail.value}</p>
                       </div>
                     </a>
                   )
@@ -72,7 +72,8 @@ export function Contact() {
                         key={social.label}
                         href={social.href}
                         aria-label={social.label}
-                        className="flex size-10 items-center justify-center rounded-lg border border-border/60 text-muted-foreground transition-colors hover:border-brand/40 hover:bg-brand/10 hover:text-brand"
+                        rel="noopener noreferrer"
+                        className="flex size-11 items-center justify-center rounded-lg border border-border/60 text-muted-foreground transition-colors hover:border-brand/40 hover:bg-brand/10 hover:text-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
                       >
                         <Icon className="size-4" />
                       </a>

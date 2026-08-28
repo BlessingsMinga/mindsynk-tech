@@ -16,7 +16,7 @@ export default function Home() {
     <div className="flex min-h-screen flex-col bg-background">
       <ScrollProgress />
       <Navbar />
-      <main className="relative flex-1">
+      <main id="main-content" className="relative flex-1">
         <Hero />
         <WhyClientsComeBack />
         <WhatWeBuild />
