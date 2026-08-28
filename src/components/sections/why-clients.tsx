@@ -4,7 +4,12 @@ import { motion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal"
 import { SectionHeading } from "@/components/section-heading"
+import BorderGlow from "@/components/border-glow"
 import { reasons } from "@/lib/data"
+
+// Brand-aligned mesh gradient colors (orange + amber + violet — matches Aurora)
+const GLOW_COLORS = ["#ff6a3d", "#ffb86c", "#9b7aff"]
+const GLOW_HSL = "15 88 53"
 
 export function WhyClientsComeBack() {
   return (
@@ -17,30 +22,45 @@ export function WhyClientsComeBack() {
           align="center"
         />
 
-        <RevealGroup className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4" stagger={0.1}>
+        <RevealGroup className="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-4" stagger={0.1}>
           {reasons.map((reason) => (
             <RevealItem key={reason.number} as="div" className="h-full">
               <motion.div
                 whileHover={{ y: -6 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="group flex h-full flex-col rounded-xl border border-border/60 bg-card p-6 transition-shadow hover:shadow-xl"
+                className="group h-full"
               >
-                <div className="mb-4 flex items-center gap-3">
-                  <span className="flex size-10 items-center justify-center rounded-lg bg-navy text-sm font-bold text-brand">
-                    {reason.number}
-                  </span>
-                  <div className="h-px flex-1 bg-border/60" />
-                </div>
-                <h3 className="text-base font-semibold leading-snug">{reason.title}</h3>
-                <p className="mt-3 flex-1 text-sm text-muted-foreground text-pretty">
-                  {reason.description}
-                </p>
-                {reason.highlight && (
-                  <p className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-brand">
-                    <span className="size-1.5 rounded-full bg-brand" />
-                    {reason.highlight}
-                  </p>
-                )}
+                <BorderGlow
+                  backgroundColor="#ffffff"
+                  borderRadius={16}
+                  glowRadius={25}
+                  glowColor={GLOW_HSL}
+                  glowIntensity={1.1}
+                  edgeSensitivity={25}
+                  coneSpread={25}
+                  fillOpacity={0.3}
+                  colors={GLOW_COLORS}
+                  className="h-full"
+                >
+                  <div className="flex h-full flex-col p-6">
+                    <div className="mb-4 flex items-center gap-3">
+                      <span className="flex size-10 items-center justify-center rounded-lg bg-navy text-sm font-bold text-brand">
+                        {reason.number}
+                      </span>
+                      <div className="h-px flex-1 bg-border/60" />
+                    </div>
+                    <h3 className="text-base font-semibold leading-snug">{reason.title}</h3>
+                    <p className="mt-3 flex-1 text-sm text-muted-foreground text-pretty">
+                      {reason.description}
+                    </p>
+                    {reason.highlight && (
+                      <p className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-brand">
+                        <span className="size-1.5 rounded-full bg-brand" />
+                        {reason.highlight}
+                      </p>
+                    )}
+                  </div>
+                </BorderGlow>
               </motion.div>
             </RevealItem>
           ))}

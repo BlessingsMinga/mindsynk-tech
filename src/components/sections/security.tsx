@@ -4,7 +4,13 @@ import { motion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal"
 import { Button } from "@/components/ui/button"
+import BorderGlow from "@/components/border-glow"
 import { securityPillars } from "@/lib/data"
+
+// Brand-aligned mesh gradient colors (orange + amber + violet — matches Aurora)
+const GLOW_COLORS = ["#ff6a3d", "#ffb86c", "#9b7aff"]
+// Logo orange #f15922 ≈ HSL(15, 88%, 53%)
+const GLOW_HSL = "15 88 53"
 
 export function Security() {
   return (
@@ -46,7 +52,7 @@ export function Security() {
         </div>
 
         {/* Pillars */}
-        <RevealGroup className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4" stagger={0.1}>
+        <RevealGroup className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4" stagger={0.1}>
           {securityPillars.map((pillar) => {
             const Icon = pillar.icon
             return (
@@ -54,19 +60,34 @@ export function Security() {
                 <motion.div
                   whileHover={{ y: -6 }}
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                  className="group flex h-full flex-col rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-colors hover:border-brand/30 hover:bg-white/[0.07]"
+                  className="h-full"
                 >
-                  <motion.div
-                    whileHover={{ scale: 1.1, rotate: -4 }}
-                    transition={{ type: "spring", stiffness: 300, damping: 15 }}
-                    className="mb-4 flex size-11 items-center justify-center rounded-xl bg-brand/15 text-brand"
+                  <BorderGlow
+                    backgroundColor="rgba(255,255,255,0.04)"
+                    borderRadius={16}
+                    glowRadius={25}
+                    glowColor={GLOW_HSL}
+                    glowIntensity={1.2}
+                    edgeSensitivity={25}
+                    coneSpread={25}
+                    fillOpacity={0.35}
+                    colors={GLOW_COLORS}
+                    className="h-full backdrop-blur-sm"
                   >
-                    <Icon className="size-5" />
-                  </motion.div>
-                  <h3 className="font-semibold text-white">{pillar.title}</h3>
-                  <p className="mt-2 text-sm text-white/60 text-pretty">
-                    {pillar.description}
-                  </p>
+                    <div className="flex h-full flex-col p-6">
+                      <motion.div
+                        whileHover={{ scale: 1.1, rotate: -4 }}
+                        transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                        className="mb-4 flex size-11 items-center justify-center rounded-xl bg-brand/15 text-brand"
+                      >
+                        <Icon className="size-5" />
+                      </motion.div>
+                      <h3 className="font-semibold text-white">{pillar.title}</h3>
+                      <p className="mt-2 text-sm text-white/60 text-pretty">
+                        {pillar.description}
+                      </p>
+                    </div>
+                  </BorderGlow>
                 </motion.div>
               </RevealItem>
             )

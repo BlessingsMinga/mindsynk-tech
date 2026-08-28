@@ -137,3 +137,25 @@ Stage Summary:
 - The landing page hero now has an animated Aurora background: a flowing simplex-noise aurora gradient in brand orange + amber + violet, drifting slowly across the dark navy hero.
 - Root-caused and fixed the invisible-background bug (missing `isolate` on the section → negative-z child was painted behind the section's own opaque background).
 - The aurora + WarpText headline + grid overlay all composite correctly in the same stacking context; text contrast preserved; dark mode works; lint clean.
+
+---
+Task ID: 7
+Agent: Main (Z.ai Code)
+Task: Integrate the React Bits BorderGlow component (TypeScript + CSS variant, no external dependencies) into the card sections on the landing page.
+
+Work Log:
+- Created `/src/components/border-glow.css` — the full component CSS (mesh-gradient border, soft-light background fill, plus-lighter outer glow, conic mask following cursor angle, edge-proximity opacity ramp).
+- Created `/src/components/border-glow.tsx` — the full React Bits BorderGlow source with `"use client"`. Tracks pointer position relative to each card's center, computes edge proximity (0-100%) and cursor angle, and sets CSS custom properties (`--edge-proximity`, `--cursor-angle`) that drive the GPU-accelerated CSS glow layers. Supports an optional `animated` intro sweep.
+- Defined brand-aligned glow constants shared across all card sections: `colors = ["#ff6a3d", "#ffb86c", "#9b7aff"]` (brightened brand orange + amber + violet, matching the Aurora background) and `glowColor = "15 88 53"` (logo orange #f15922 as HSL for the outer edge-light glow).
+- Integrated BorderGlow into 3 card sections (14 cards total):
+  1. **Security pillars** (dark navy-deep section, 4 cards): `backgroundColor="rgba(255,255,255,0.04)"` for a translucent card on dark, `glowIntensity=1.2`, `fillOpacity=0.35`, `glowRadius=25`, `borderRadius=16`. The plus-lighter blend mode makes the glow pop dramatically against the dark background.
+  2. **What We Build service cards** (light secondary bg, 6 cards): `backgroundColor="#ffffff"`, `glowIntensity=1.1`, `fillOpacity=0.3`. The orange mesh border glow appears on hover against the white card.
+  3. **Why Clients reason cards** (light bg, 4 cards): same light-card config as services.
+- Preserved all existing inner card content (icons, headings, descriptions, outcome lines, links) and the Framer Motion hover-lift + icon-scale animations by nesting them inside BorderGlow's children. Widened grid gaps from gap-6 to gap-8 so the outer glow isn't clipped by neighbouring cards.
+- Verified with Agent Browser + VLM: 14 `.border-glow-card` elements render. On the dark Security section, hovering near a card's edge sets `--edge-proximity: 87.3%` and `--cursor-angle: 311deg` — VLM confirmed "a visible colored glow effect around the border/edges" with "purple/violet on the left, pink/magenta on top, orange/amber on the right… soft, diffused neon-like gradient… iridescent or aurora quality… only the hovered card glows, others stay plain." On the light What We Build section, VLM confirmed "a visible orange glow around the border of the first card" with other cards showing "standard plain borders." Lint passes clean, no console/page errors.
+
+Stage Summary:
+- 14 cards across 3 sections now use the BorderGlow component: an interactive pointer-tracked mesh-gradient border glow with brand-aligned orange/amber/violet colors.
+- The effect is most dramatic on the dark-navy Security section (plus-lighter blend mode), and adds a subtle orange edge-glow on hover for the light-background service and reason cards.
+- The glow follows the cursor's angle around the card and fades in/out based on edge proximity — only the hovered card glows, others remain in their resting state.
+- No external dependencies needed (pure CSS + pointer events). Lint clean, no regressions.
