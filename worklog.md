@@ -182,3 +182,20 @@ Stage Summary:
   2. Layered parallax in the hero — the image, floating stat card, and Aurora background each drift at different rates as the hero scrolls out of view, creating a sense of depth.
 - Resolved the non-static-position warning by making `<main>` positioned.
 - Lint clean, no runtime errors, both effects verified in-browser.
+
+---
+Task ID: 9
+Agent: Main (Z.ai Code)
+Task: Add a floating WhatsApp icon button that appears when the user scrolls down.
+
+Work Log:
+- Added a `whatsapp` field ("265991234567") to `companyInfo` in `src/lib/data.ts` so the number is centralized and reusable.
+- Created `/src/components/whatsapp-button.tsx` — a fixed bottom-right floating action button (FAB) that uses motion.dev's `useScroll()` + `useMotionValueEvent(scrollY, "change")` to toggle visibility once the user scrolls past 400px. Wrapped in `AnimatePresence` so it animates in (spring scale/opacity/y) and out cleanly. Features: official WhatsApp green (#25D366) circle, authentic WhatsApp SVG glyph, a continuously pulsing ring (scale 1→1.6, opacity 0.5→0, 2s loop) to draw attention, a "Chat with us" tooltip that slides in on hover (desktop, via Framer Motion `onHoverStart`/`onHoverEnd` + nested AnimatePresence — more robust than Tailwind `group-hover` which wasn't generating), and links to `https://wa.me/<number>?text=Hi MindSynk…` with a prefilled message. Accessible via `aria-label` and `rel="noopener noreferrer"`.
+- Replaced the initial Tailwind `group-hover:opacity-100` tooltip approach (which Tailwind 4's JIT wasn't generating reliably for the dynamic class combination) with a Framer Motion-driven tooltip using `onHoverStart`/`onHoverEnd` state + a nested `<AnimatePresence>` — verified to reach computed opacity 1 on hover.
+- Added `<WhatsAppButton />` to the page layout in `src/app/page.tsx` (after the Footer, inside the root wrapper).
+- Verified with Agent Browser: at page top (scrollY=0) the button element does NOT exist in the DOM (AnimatePresence removed it). After scrolling to 500px, the button appears (56×56, opacity 1) at bottom-right (x≈1228, y≈525) and links to https://wa.me/265991234567. Hovering the button reveals a "Chat with us" tooltip (opacity 1, width 120px) to its left — confirmed by VLM: "a green circular WhatsApp button with the white WhatsApp logo… next to it a dark tooltip displaying 'Chat with us'". The pulsing ring animation runs continuously. Lint passes clean, no page errors.
+
+Stage Summary:
+- A floating WhatsApp FAB now appears in the bottom-right corner once the user scrolls down past 400px, with a smooth spring entrance animation, a pulsing attention ring, an authentic WhatsApp glyph, and a hover tooltip ("Chat with us").
+- Clicking it opens a WhatsApp chat with the company number (265991234567) pre-filled with "Hi MindSynk Technologies, I'd like to discuss a project."
+- Built on motion.dev's `useScroll` + `useMotionValueEvent`, consistent with the scroll-progress + parallax integration from the previous task. Lint clean, verified in-browser.

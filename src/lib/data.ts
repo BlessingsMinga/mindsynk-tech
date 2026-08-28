@@ -360,6 +360,7 @@ export const companyInfo = {
   tagline: "Powering Progress Through Technology",
   email: "hello@mindsynk.tech",
   phone: "+265 991 234 567",
+  whatsapp: "265991234567",
   location: "Lilongwe, Malawi",
   address: "Area 47, Lilongwe, Malawi",
   hours: "Mon - Fri: 08:00am - 05:00pm",

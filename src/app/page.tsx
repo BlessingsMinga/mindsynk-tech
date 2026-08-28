@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { ScrollProgress } from "@/components/scroll-progress"
+import { WhatsAppButton } from "@/components/whatsapp-button"
 import { Hero } from "@/components/sections/hero"
 import { WhyClientsComeBack } from "@/components/sections/why-clients"
 import { WhatWeBuild } from "@/components/sections/what-we-build"
@@ -26,6 +27,7 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
+      <WhatsAppButton />
     </div>
   )
 }
