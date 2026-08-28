@@ -159,3 +159,26 @@ Stage Summary:
 - The effect is most dramatic on the dark-navy Security section (plus-lighter blend mode), and adds a subtle orange edge-glow on hover for the light-background service and reason cards.
 - The glow follows the cursor's angle around the card and fades in/out based on edge proximity — only the hovered card glows, others remain in their resting state.
 - No external dependencies needed (pure CSS + pointer events). Lint clean, no regressions.
+
+---
+Task ID: 8
+Agent: Main (Z.ai Code)
+Task: Integrate motion.dev's `useScroll` hook (from the framer-motion package, already installed v12.23.2) for scroll-driven animations on the landing page.
+
+Work Log:
+- Verified `framer-motion@12.23.2` already exposes `useScroll`, `useTransform`, and `useSpring` — no package install needed (motion.dev is the current home of Framer Motion).
+- Created `/src/components/scroll-progress.tsx` — a thin (h-1) fixed progress bar at the very top of the viewport (z-[60], above the navbar). Uses `useScroll()` with no target (tracks whole-document scroll progress 0→1) and `useSpring(scrollYProgress, { stiffness: 120, damping: 30 })` to smooth the value so the bar eases fluidly instead of jittering. The bar uses a brand-aligned gradient (brand orange → amber → violet) and `transform: scaleX` with `origin-left` so it grows from the left edge.
+- Added `<ScrollProgress />` as the first child of the page root wrapper in `src/app/page.tsx`, before the Navbar.
+- Added element-scoped parallax to the Hero (`src/components/sections/hero.tsx`) using `useScroll({ target: heroRef, offset: ["start start", "end start"] })` to track scroll progress through the hero section, then `useTransform` to map it to vertical offsets:
+  - Hero image container: `y` from 0 → -60px (drifts upward, slower than scroll = depth)
+  - Floating "Systems Delivered" stat card: `y` from 0 → -110px (drifts more = layered parallax)
+  - Aurora background wrapper: `y` from 0 → +40px (counter-parallax drift downward = atmospheric depth)
+- Fixed a motion.dev console warning ("Please ensure that the container has a non-static position…") that `useScroll({ target })` emits when the target's offset parent is static: added `relative` to the `<main>` wrapper in page.tsx so the hero section's offsetParent chain is positioned. Warning is now gone.
+- Verified with Agent Browser: at page top, progress bar = `scaleX(0)` and hero image transform = `none` (y=0). After scrolling to mid-page, progress bar = `scaleX(0.531)` (53% filled, spring-smoothed) and hero image = `translateY(-60px)` (full parallax offset). After scrolling to bottom, progress bar = `scaleX(1)` (full). No console warnings, no page errors. Lint passes clean.
+
+Stage Summary:
+- Two scroll-driven animations added via motion.dev's `useScroll`:
+  1. A brand-gradient progress bar fixed to the top of the viewport that fills 0→100% as the user scrolls the whole page (spring-smoothed for fluidity).
+  2. Layered parallax in the hero — the image, floating stat card, and Aurora background each drift at different rates as the hero scrolls out of view, creating a sense of depth.
+- Resolved the non-static-position warning by making `<main>` positioned.
+- Lint clean, no runtime errors, both effects verified in-browser.

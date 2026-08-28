@@ -1,6 +1,7 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { useRef } from "react"
+import { motion, useScroll, useTransform } from "framer-motion"
 import { ArrowRight, Phone, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Counter } from "@/components/counter"
@@ -22,21 +23,40 @@ const item = {
 }
 
 export function Hero() {
+  const heroRef = useRef<HTMLElement>(null)
+  // Track scroll progress through the hero element itself (0 at top of hero,
+  // 1 when the hero has fully scrolled past). Drives the parallax transforms.
+  const { scrollYProgress: heroProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  })
+  // Image drifts upward slightly slower than the scroll for depth.
+  const imageY = useTransform(heroProgress, [0, 1], [0, -60])
+  // Floating stat card drifts a touch more for layered parallax.
+  const statY = useTransform(heroProgress, [0, 1], [0, -110])
+  // Aurora bg drifts down very slowly for a counter-parallax atmosphere.
+  const auroraY = useTransform(heroProgress, [0, 1], [0, 40])
+
   return (
     <section
+      ref={heroRef}
       id="home"
       className="relative isolate overflow-hidden bg-navy pt-28 pb-16 sm:pt-32 lg:pt-40 lg:pb-24"
       aria-label="Hero"
     >
       {/* Aurora animated background */}
-      <div className="absolute inset-0 -z-10" aria-hidden="true">
+      <motion.div
+        className="absolute inset-0 -z-10"
+        style={{ y: auroraY }}
+        aria-hidden="true"
+      >
         <Aurora
           colorStops={["#ff6a3d", "#ffb86c", "#9b7aff"]}
           blend={1.15}
           amplitude={1.6}
           speed={0.4}
         />
-      </div>
+      </motion.div>
       {/* Grid pattern overlay */}
       <div className="pointer-events-none absolute inset-0 -z-10 bg-grid opacity-10" aria-hidden="true" />
 
@@ -108,7 +128,10 @@ export function Hero() {
           className="relative mx-auto w-full max-w-lg lg:max-w-none"
         >
           {/* Gold blob container with grid pattern */}
-          <div className="relative overflow-hidden rounded-[2.5rem] bg-brand">
+          <motion.div
+            style={{ y: imageY }}
+            className="relative overflow-hidden rounded-[2.5rem] bg-brand"
+          >
             <div className="absolute inset-0 bg-grid opacity-30" aria-hidden="true" />
             <img
               src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/b0c8aec62d3c.jpg"
@@ -117,13 +140,14 @@ export function Hero() {
               loading="eager"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-navy/40 via-transparent to-transparent" />
-          </div>
+          </motion.div>
 
           {/* Floating stat card — bottom left */}
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9, duration: 0.6 }}
+            style={{ y: statY }}
             className="absolute -bottom-5 -left-3 hidden rounded-2xl border border-white/10 bg-navy-deep/95 p-4 shadow-2xl backdrop-blur-md sm:block"
           >
             <div className="flex items-center gap-3">
