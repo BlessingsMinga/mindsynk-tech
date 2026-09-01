@@ -1,6 +1,7 @@
 "use client"
 
 import { useRef } from "react"
+import Image from "next/image"
 import { motion, useScroll, useTransform } from "framer-motion"
 import { ArrowRight, Phone, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -133,11 +134,13 @@ export function Hero() {
             className="relative overflow-hidden rounded-[2.5rem] bg-brand"
           >
             <div className="absolute inset-0 bg-grid opacity-30" aria-hidden="true" />
-            <img
-              src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/b0c8aec62d3c.jpg"
+            <Image
+              src="/images/hero-team.jpg"
               alt="Professional MindSynk Technologies team — diverse business leaders ready to partner with your organisation"
-              className="relative aspect-[4/5] w-full object-cover mix-blend-luminosity opacity-95"
-              loading="eager"
+              fill
+              priority
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              className="object-cover mix-blend-luminosity opacity-95"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-navy/40 via-transparent to-transparent" />
           </motion.div>

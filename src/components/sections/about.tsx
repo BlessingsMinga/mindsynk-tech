@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import Image from "next/image"
 import { Target, Eye, ArrowRight } from "lucide-react"
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal"
 import { SectionHeading } from "@/components/section-heading"
@@ -21,12 +22,13 @@ export function About() {
         {/* Story + image */}
         <div className="mt-16 grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <Reveal>
-            <div className="relative overflow-hidden rounded-2xl border border-border/60 shadow-xl">
-              <img
-                src="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/73ef1f9022b8.jpg"
+            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-border/60 shadow-xl">
+              <Image
+                src="/images/about-datacenter.jpg"
                 alt="Modern data center infrastructure powering MindSynk Technologies enterprise solutions"
-                className="aspect-[4/3] w-full object-cover"
-                loading="lazy"
+                fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-navy/50 to-transparent" />
               {/* Floating badge */}

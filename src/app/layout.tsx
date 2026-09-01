@@ -1,10 +1,80 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "@/components/providers/theme-provider";
+import { services, companyInfo } from "@/lib/data";
+
+const SITE_URL = "https://mindsynk.tech";
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": `${SITE_URL}/#organization`,
+      name: companyInfo.name,
+      slogan: companyInfo.tagline,
+      url: SITE_URL,
+      logo: `${SITE_URL}/MindSynk_Full.png`,
+      image: `${SITE_URL}/og.png`,
+      description:
+        "MindSynk Technologies is a B2B tech partner delivering software development, cloud computing, IT consultancy, digital marketing, data analytics, and design services from Lilongwe, Malawi.",
+      email: companyInfo.email,
+      telephone: companyInfo.phone.replace(/\s/g, ""),
+      priceRange: "$$",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Area 47",
+        addressLocality: "Lilongwe",
+        addressCountry: "MW",
+      },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: -13.9626,
+        longitude: 33.7741,
+      },
+      openingHoursSpecification: [
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          opens: "08:00",
+          closes: "17:00",
+        },
+      ],
+      areaServed: ["Malawi", "Zambia", "East Africa"],
+      contactPoint: {
+        "@type": "ContactPoint",
+        telephone: companyInfo.phone.replace(/\s/g, ""),
+        contactType: "sales",
+        email: companyInfo.email,
+        availableLanguage: "English",
+      },
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "Services",
+        itemListElement: services.map((service) => ({
+          "@type": "Offer",
+          name: service.title,
+          description: service.short,
+        })),
+      },
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      url: SITE_URL,
+      name: companyInfo.name,
+      publisher: { "@id": `${SITE_URL}/#organization` },
+    },
+  ],
+};
 
 export const metadata: Metadata = {
-  title: "MindSynk Technologies — Powering Progress Through Technology",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "MindSynk Technologies — Powering Progress Through Technology",
+    template: "%s | MindSynk Technologies",
+  },
   description:
     "MindSynk Technologies is a B2B tech partner delivering software development, cloud computing, IT consultancy, digital marketing, data analytics, and design services from Lilongwe, Malawi.",
   keywords: [
@@ -19,23 +89,47 @@ export const metadata: Metadata = {
     "B2B technology partner",
   ],
   authors: [{ name: "MindSynk Technologies" }],
+  creator: "MindSynk Technologies",
   icons: {
     icon: "/MindSynk_Full.png",
     apple: "/MindSynk_Full.png",
+  },
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
   openGraph: {
     title: "MindSynk Technologies — Powering Progress Through Technology",
     description:
       "A B2B technology partner delivering software, cloud, data, and design solutions that move your business forward.",
-    url: "https://mindsynk.tech",
+    url: SITE_URL,
     siteName: "MindSynk Technologies",
     type: "website",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "MindSynk Technologies — Powering Progress Through Technology",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "MindSynk Technologies",
     description: "Powering Progress Through Technology",
+    images: ["/og.png"],
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#14152a" },
+  ],
 };
 
 export default function RootLayout({
@@ -48,6 +142,10 @@ export default function RootLayout({
       <body
         className="antialiased bg-background text-foreground"
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
         <a
           href="#main-content"
           className="sr-only z-[100] rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground focus:not-sr-only focus:fixed focus:left-4 focus:top-4"

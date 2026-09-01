@@ -1,10 +1,11 @@
+import Image from "next/image"
 import type { Metadata } from "next"
 import { ArrowLeft, ArrowRight, CheckCircle2 } from "lucide-react"
 import { caseStudies } from "@/lib/data"
 import { Button } from "@/components/ui/button"
 
 export const metadata: Metadata = {
-  title: "Case Studies | MindSynk Technologies",
+  title: "Case Studies",
   description: "Explore selected MindSynk Technologies projects and the operational outcomes they deliver.",
 }
 
@@ -37,11 +38,13 @@ export default function CaseStudiesPage() {
       <section className="mx-auto max-w-7xl space-y-16 px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
         {caseStudies.map((study, index) => (
           <article key={study.id} className="grid overflow-hidden rounded-3xl border border-border/60 bg-card shadow-sm lg:grid-cols-2">
-            <div className={index % 2 ? "lg:order-2" : ""}>
-              <img
+            <div className={index % 2 ? "relative min-h-72 lg:order-2" : "relative min-h-72"}>
+              <Image
                 src={study.image}
                 alt={`${study.title} project interface`}
-                className="h-full min-h-72 w-full object-cover"
+                fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="h-full object-cover"
               />
             </div>
             <div className="flex flex-col p-7 sm:p-10">

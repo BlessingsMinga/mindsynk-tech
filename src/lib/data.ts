@@ -203,7 +203,7 @@ export const caseStudies: CaseStudy[] = [
     title: "MediAlert",
     sector: "Healthcare Platform",
     region: "Malawi",
-    image: "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/098bf667ba34.png",
+    image: "/images/case-medialert.png",
     challenge:
       "Patient care was fragmented across facilities with no centralised medication tracking, leading to missed reminders, poor adherence, and limited visibility for clinicians.",
     solution:
@@ -217,7 +217,7 @@ export const caseStudies: CaseStudy[] = [
     title: "PezaHome",
     sector: "Real Estate Marketplace",
     region: "East Africa",
-    image: "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/1d27ee944461.png",
+    image: "/images/case-pezahome.png",
     challenge:
       "Property listings were scattered across informal channels with no verification, making transactions slow, opaque, and difficult to trust for buyers and agents alike.",
     solution:
@@ -231,7 +231,7 @@ export const caseStudies: CaseStudy[] = [
     title: "AgriPay",
     sector: "FinTech Solution",
     region: "Malawi & Zambia",
-    image: "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/2c3d55f59f1a.png",
+    image: "/images/case-agripay.png",
     challenge:
       "Agricultural cooperatives relied on manual, cash-based processes that were slow, error-prone, and left members without digital records of their transactions.",
     solution:

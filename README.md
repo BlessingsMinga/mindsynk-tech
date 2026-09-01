@@ -148,8 +148,8 @@ npm run start
 ## 🛠️ Development Notes
 
 - **Brand palette** is defined as OKLCH tokens in `src/app/globals.css` from the logo colours: orange `#f15922` (accent) and navy `#1d1e32` (primary/structure).
-- All images sit under `public/`; the Next.js image component allows remote patterns from `z-cdn.chatglm.cn`.
-- Strict mode is disabled in `next.config.ts`; TypeScript build errors are currently ignored at build time (see `next.config.ts`).
+- All imagery is self-hosted under `public/images/` and served through the Next.js image optimizer (`next/image`).
+- React strict mode is enabled and TypeScript errors fail the build (`next.config.ts`). SEO extras include `src/app/sitemap.ts`, JSON-LD structured data in `layout.tsx`, and a generated brand OG image (`node scripts/generate-og.mjs` → `public/og.png`).
 
 ## 📬 Contact
 
