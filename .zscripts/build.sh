@@ -33,11 +33,11 @@ mkdir -p "$BUILD_DIR"
 
 # 安装依赖
 echo "📦 安装依赖..."
-bun install
+npm install
 
 # 构建 Next.js 应用
 echo "🔨 构建 Next.js 应用..."
-bun run build
+npm run build
 
 # 校验 standalone 服务端入口是否生成（部署成功率守卫）。
 # Next 仅在 next.config 含 output:"standalone" 时产出 .next/standalone/server.js。
@@ -88,7 +88,7 @@ if [ ! -f ".next/standalone/server.js" ]; then
     fi
 
     echo "🔨 已注入 output:\"standalone\"，重新构建..."
-    bun run build
+    npm run build
 
     if [ ! -f ".next/standalone/server.js" ]; then
         echo "❌ 注入 output:\"standalone\" 并重建后，仍未生成 .next/standalone/server.js。"

@@ -50,7 +50,7 @@ export function WhatWeBuild() {
                     colors={GLOW_COLORS}
                     className="h-full"
                   >
-                    <div className="flex h-full flex-col p-6">
+                    <div className="flex h-full flex-col p-6 sm:p-7">
                       <motion.div
                         whileHover={{ scale: 1.08, rotate: -3 }}
                         transition={{ type: "spring", stiffness: 300, damping: 15 }}
@@ -58,17 +58,18 @@ export function WhatWeBuild() {
                       >
                         <Icon className="size-6" />
                       </motion.div>
-                      <h3 className="text-lg font-semibold">{service.title}</h3>
-                      <p className="mt-2 text-sm text-muted-foreground text-pretty">
+                      <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand">Capability</p>
+                      <h3 className="mt-2 text-xl font-bold leading-snug">{service.title}</h3>
+                      <p className="mt-3 text-sm leading-6 text-muted-foreground text-pretty">
                         {service.short}
                       </p>
 
                       {/* Outcome line */}
-                      <div className="mt-4 border-t border-border/60 pt-4">
-                        <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                      <div className="mt-5 border-t border-border/60 pt-4">
+                        <p className="text-xs font-bold uppercase tracking-[0.14em] text-muted-foreground">
                           The result
                         </p>
-                        <p className="mt-1 text-sm font-medium text-primary text-pretty">
+                        <p className="mt-1.5 text-sm font-semibold leading-6 text-primary text-pretty">
                           {service.outcome}
                         </p>
                       </div>

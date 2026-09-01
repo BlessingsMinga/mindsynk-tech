@@ -42,15 +42,15 @@ export function WhyClientsComeBack() {
                   colors={GLOW_COLORS}
                   className="h-full"
                 >
-                  <div className="flex h-full flex-col p-6">
+                  <div className="flex h-full flex-col p-6 sm:p-7">
                     <div className="mb-4 flex items-center gap-3">
                       <span className="flex size-10 items-center justify-center rounded-lg bg-navy text-sm font-bold text-brand">
                         {reason.number}
                       </span>
                       <div className="h-px flex-1 bg-border/60" />
                     </div>
-                    <h3 className="text-base font-semibold leading-snug">{reason.title}</h3>
-                    <p className="mt-3 flex-1 text-sm text-muted-foreground text-pretty">
+                    <h3 className="text-lg font-bold leading-snug">{reason.title}</h3>
+                    <p className="mt-3 flex-1 text-sm leading-6 text-muted-foreground text-pretty">
                       {reason.description}
                     </p>
                     {reason.highlight && (

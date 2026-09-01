@@ -55,6 +55,8 @@
  */
 
 :root {
+  --font-geist-sans: Arial, Helvetica, sans-serif;
+  --font-geist-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
   --radius: 0.5rem;
   /* Navy #1d1e32 — logo wordmark colour */
   --primary: oklch(0.24 0.04 281);
@@ -133,11 +135,16 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
   }
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 6rem;
+  }
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
   }
   /* Consistent visible focus indicator for keyboard users on all interactive elements */
   a:focus-visible,
@@ -210,4 +217,8 @@
 /* Brand-orange glow */
 .glow-brand {
   box-shadow: 0 0 90px -20px oklch(0.66 0.20 38 / 0.5);
+}
+
+section[id] {
+  scroll-margin-top: 6rem;
 }

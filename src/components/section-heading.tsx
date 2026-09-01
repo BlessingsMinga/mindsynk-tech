@@ -21,19 +21,20 @@ export function SectionHeading({
   return (
     <Reveal
       className={cn(
-        "max-w-2xl",
+        "max-w-3xl",
         align === "center" && "mx-auto text-center",
         className
       )}
     >
-      <span className="inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary">
+      <span className="inline-flex items-center gap-2 rounded-full border border-brand/20 bg-brand/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-primary">
+        <span className="size-1.5 rounded-full bg-brand" aria-hidden="true" />
         {eyebrow}
       </span>
-      <h2 className="mt-4 text-3xl font-bold tracking-tight text-balance sm:text-4xl">
+      <h2 className="mt-5 text-3xl font-bold leading-[1.1] tracking-tight text-balance sm:text-4xl lg:text-[2.65rem]">
         {title}
       </h2>
       {description && (
-        <p className="mt-4 text-base text-muted-foreground text-pretty sm:text-lg">
+        <p className="mt-5 max-w-2xl text-base leading-7 text-muted-foreground text-pretty sm:text-lg sm:leading-8">
           {description}
         </p>
       )}

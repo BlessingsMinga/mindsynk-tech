@@ -6,7 +6,7 @@ The official marketing website for **[MindSynk Technologies](https://mindsynk.te
 
 This is a modern, single-page marketing site built with the Next.js App Router. It features an animated WebGL hero, dark-mode support, and a validated contact form.
 
-![Stack](https://img.shields.io/badge/Next.js-16-black) ![Stack](https://img.shields.io/badge/React-19-61dafb) ![Stack](https://img.shields.io/badge/Tailwind%20CSS-4-38bdf8) ![Stack](https://img.shields.io/badge/Prisma-6-2d3748) ![Stack](https://img.shields.io/badge/Runtime-Bun-f9f9f9)
+![Stack](https://img.shields.io/badge/Next.js-16-black) ![Stack](https://img.shields.io/badge/React-19-61dafb) ![Stack](https://img.shields.io/badge/Tailwind%20CSS-4-38bdf8) ![Stack](https://img.shields.io/badge/Prisma-6-2d3748) ![Stack](https://img.shields.io/badge/Runtime-Node.js-339933)
 
 ---
 
@@ -33,19 +33,20 @@ This is a modern, single-page marketing site built with the Next.js App Router. 
 | Animation    | [Framer Motion](https://motion.dev), [ogl](https://github.com/oframe/ogl) (WebGL), CSS animations |
 | Forms        | [react-hook-form](https://react-hook-form.com) + [zod](https://zod.dev)      |
 | Data layer   | [Prisma](https://prisma.io) 6 + SQLite                                       |
-| Package mgr  | [Bun](https://bun.sh) (also runtimes the standalone server)                  |
+| Package mgr  | [npm](https://www.npmjs.com) / [npx](https://www.npmjs.com/package/npx)          |
 | Development  | Next.js dev server + Caddy reverse proxy (`.zscripts` helper scripts)        |
+
 ## 🚀 Getting Started
 
 ### Prerequisites
 
-- **Bun** ≥ 1.x ([install](https://bun.sh/docs/install)) — used for installs, scripts, and running the production server.
-- Node.js ≥ 18 (for Next.js tooling, optional if Bun handles everything).
+- **Node.js** ≥ 20.9 ([install](https://nodejs.org)) — required by Next.js 16. Node 24 LTS is recommended.
+- **npm** ≥ 10 (ships with Node.js) — used for installing dependencies and running scripts. `npx` is used to invoke CLI tools like Prisma.
 
 ### 1. Install dependencies
 
 ```bash
-bun install
+npm install
 ```
 
 ### 2. Configure environment variables
@@ -60,14 +61,14 @@ DATABASE_URL="file:./db/custom.db"
 ### 3. Set up the database
 
 ```bash
-bun run db:generate   # generate the Prisma client
-bun run db:push       # push the schema to the SQLite database (creates db/custom.db)
+npm run db:generate   # generate the Prisma client
+npm run db:push       # push the schema to the SQLite database (creates db/custom.db)
 ```
 
 ### 4. Start the dev server
 
 ```bash
-bun run dev           # Next.js dev server on http://localhost:3000
+npm run dev           # Next.js dev server on http://localhost:3000
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
@@ -76,8 +77,15 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 | Command                 | Description                                                        |
 | ----------------------- | ------------------------------------------------------------------ |
-| `bun run dev`           | Start the development server on port 3000 (logs to `dev.log`)      |
-| `bun run build`         | Production build (`next build` + standalone static/public assets)  |
+| `npm run dev`           | Start the development server on port 3000                           |
+| `npm run build`         | Production build (`next build` + standalone static/public assets)   |
+| `npm run start`         | Serve the standalone build with Node.js on port 3000                |
+| `npm run lint`          | Run ESLint over the project                                         |
+| `npm run db:generate`   | Regenerate the Prisma client                                        |
+| `npm run db:push`       | Push the Prisma schema to the database                              |
+| `npm run db:migrate`    | Create and apply a new Prisma migration                             |
+| `npm run db:reset`      | Reset the database (drops all data)                                 |
+
 ## 📁 Project Structure
 
 ```
@@ -114,6 +122,10 @@ mindsynk-tech/
 │       └── utils.ts      # cn() class-name helper
 ├── Caddyfile             # Reverse proxy (port 81 → localhost:3000)
 ├── components.json       # shadcn/ui configuration
+├── next.config.ts        # standalone output, image remote patterns
+└── package.json
+```
+
 ## 🗄️ Database
 
 Prisma is wired to a **SQLite** database (`file:${PROJECT_DIR}/db/custom.db`) with `User` and `Post` models provided as a starting scaffold in `prisma/schema.prisma`. The Prisma client is exposed as a singleton through `src/lib/db.ts` to avoid connection bloat in development.
@@ -125,11 +137,10 @@ Prisma is wired to a **SQLite** database (`file:${PROJECT_DIR}/db/custom.db`) wi
 The project builds to a **standalone** output:
 
 ```bash
-bun run build
-NODE_ENV=production bun .next/standalone/server.js
+npm run build
+npm run start
 ```
-
-- The build copies `.next/static` and `public/` into `.next/standalone` so the self-contained server can serve the site on port 3000.
+- The build copies `.next/static` and `public/` into `.next/standalone` (via `scripts/postbuild.js`) so the self-contained server can serve the site on port 3000.
 - The bundled `Caddyfile` sits in front of the app (Caddy listens on port `81` and reverse-proxies to `localhost:3000`; optional `XTransformPort` query routing is supported).
 - Environment variables (`NODE_ENV`, `PORT`, `HOSTNAME`, `DATABASE_URL`) can be overridden at deploy time.
 - `.zscripts/build.sh` packages the standalone app, static assets, Caddyfile, database, and mini-services into a deployable tarball.
@@ -149,12 +160,3 @@ NODE_ENV=production bun .next/standalone/server.js
 ## 📄 License
 
 No license specified. All rights reserved by MindSynk Technologies.
-├── next.config.ts        # standalone output, image remote patterns
-└── package.json
-```
-| `bun run start`         | Serve the standalone build with Bun on port 3000                  |
-| `bun run lint`          | Run ESLint over the project                                        |
-| `bun run db:generate`   | Regenerate the Prisma client                                       |
-| `bun run db:push`       | Push the Prisma schema to the database                             |
-| `bun run db:migrate`    | Create and apply a new Prisma migration                            |
-| `bun run db:reset`      | Reset the database (drops all data)                                |

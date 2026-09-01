@@ -47,35 +47,36 @@ export function CaseStudies() {
                     </span>
                   </div>
                   <div className="absolute bottom-4 left-4 right-4">
-                    <p className="text-xs font-medium uppercase tracking-wide text-white/70">
+                    <p className="text-xs font-bold uppercase tracking-[0.14em] text-white/70">
                       {cs.region}
                     </p>
-                    <h3 className="mt-0.5 text-xl font-bold text-white">{cs.title}</h3>
+                    <h3 className="mt-1 text-2xl font-bold leading-tight text-white">{cs.title}</h3>
                   </div>
                 </div>
 
                 {/* Challenge / Solution / Outcome */}
-                <div className="flex flex-1 flex-col gap-4 p-6">
+                <div className="flex flex-1 flex-col gap-5 p-6 sm:p-7">
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-wide text-brand">
+                    <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand">
                       Challenge
                     </p>
-                    <p className="mt-1.5 text-sm text-muted-foreground text-pretty">
+                    <p className="mt-2 text-sm leading-6 text-muted-foreground text-pretty">
                       {cs.challenge}
                     </p>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-wide text-brand">
+                    <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand">
                       Solution
                     </p>
-                    <p className="mt-1.5 text-sm text-muted-foreground text-pretty">
+                    <p className="mt-2 text-sm leading-6 text-muted-foreground text-pretty">
                       {cs.solution}
                     </p>
                   </div>
 
                   {/* Outcome */}
-                  <div className="mt-auto flex items-center gap-4 rounded-xl bg-navy p-4 text-white">
+                  <div className="mt-auto flex items-center gap-4 rounded-xl bg-navy p-5 text-white">
                     <div>
+                      <p className="text-[0.65rem] font-bold uppercase tracking-[0.14em] text-white/60">Outcome</p>
                       <p className="text-3xl font-bold text-brand">{cs.outcomeValue}</p>
                     </div>
                     <p className="flex-1 text-sm text-white/80 text-pretty">
@@ -102,7 +103,7 @@ export function CaseStudies() {
 
         <Reveal className="mt-12 flex justify-center" delay={0.1}>
           <Button asChild size="lg" variant="outline" className="rounded-full">
-            <a href="#contact">
+            <a href="/case-studies">
               View More Case Studies
               <ArrowRight className="size-4" />
             </a>

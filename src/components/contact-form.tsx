@@ -49,18 +49,24 @@ export function ContactForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(values),
       })
-      if (!res.ok) throw new Error("Request failed")
+      if (!res.ok) {
+        const response = await res.json().catch(() => null)
+        throw new Error(response?.error ?? "Request failed")
+      }
       toast({
         title: "Message sent!",
         description: "Thanks for reaching out. We'll reply within one business day.",
       })
       setSubmitted(true)
       reset()
-    } catch {
+    } catch (error) {
       toast({
         variant: "destructive",
         title: "Something went wrong",
-        description: "Please try again or email us directly at hello@mindsynk.tech.",
+        description:
+          error instanceof Error
+            ? `${error.message} Please try again or email us directly at hello@mindsynk.tech.`
+            : "Please try again or email us directly at hello@mindsynk.tech.",
       })
     }
   }
