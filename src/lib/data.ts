@@ -352,6 +352,7 @@ export const navLinks = [
   { label: "Process", href: "#process" },
   { label: "Work", href: "#work" },
   { label: "About", href: "#about" },
+  { label: "Team", href: "#team" },
   { label: "Contact", href: "#contact" },
 ]
 

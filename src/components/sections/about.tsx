@@ -6,7 +6,7 @@ import { Target, Eye, ArrowRight } from "lucide-react"
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal"
 import { SectionHeading } from "@/components/section-heading"
 import { Card } from "@/components/ui/card"
-import { coreValues, teamLeads } from "@/lib/data"
+import { coreValues } from "@/lib/data"
 
 export function About() {
   return (
@@ -123,41 +123,6 @@ export function About() {
                     <h4 className="font-semibold">{value.title}</h4>
                     <p className="mt-2 text-sm text-muted-foreground text-pretty">
                       {value.description}
-                    </p>
-                  </Card>
-                </RevealItem>
-              )
-            })}
-          </RevealGroup>
-        </div>
-
-        {/* Team / partnership structure */}
-        <div className="mt-20">
-          <Reveal className="mx-auto max-w-2xl text-center">
-            <h3 className="text-2xl font-bold tracking-tight sm:text-3xl">
-              Leadership built for cross-functional delivery
-            </h3>
-            <p className="mt-3 text-muted-foreground text-pretty">
-              Our partnership structure ensures every project has expert oversight
-              across engineering, design, infrastructure, and strategy.
-            </p>
-          </Reveal>
-
-          <RevealGroup className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4" stagger={0.1}>
-            {teamLeads.map((lead) => {
-              const Icon = lead.icon
-              return (
-                <RevealItem key={lead.role} as="div" className="h-full">
-                  <Card className="group h-full border-border/50 p-6 text-center transition-shadow hover:shadow-lg">
-                    <div className="mx-auto mb-4 flex size-14 items-center justify-center rounded-2xl bg-gradient-to-br from-navy to-navy-deep text-brand">
-                      <Icon className="size-6" />
-                    </div>
-                    <p className="text-xs font-semibold uppercase tracking-wide text-brand">
-                      {lead.role}
-                    </p>
-                    <h4 className="mt-1 font-semibold">{lead.name}</h4>
-                    <p className="mt-2 text-sm text-muted-foreground text-pretty">
-                      {lead.description}
                     </p>
                   </Card>
                 </RevealItem>

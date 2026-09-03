@@ -8,6 +8,7 @@ import { WhatWeBuild } from "@/components/sections/what-we-build"
 import { Process } from "@/components/sections/process"
 import { CaseStudies } from "@/components/sections/case-studies"
 import { About } from "@/components/sections/about"
+import { Team } from "@/components/sections/team"
 import { Security } from "@/components/sections/security"
 import { Contact } from "@/components/sections/contact"
 
@@ -23,6 +24,7 @@ export default function Home() {
         <Process />
         <CaseStudies />
         <About />
+        <Team />
         <Security />
         <Contact />
       </main>
