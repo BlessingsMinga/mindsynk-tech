@@ -20,11 +20,11 @@ export function WhatWeBuild() {
       aria-label="What we build"
     >
       <div className="absolute inset-0 -z-10 bg-grid-dark opacity-50" aria-hidden="true" />
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-[72.333px]">
         <SectionHeading
           eyebrow="What We Build"
-          title="Purpose-built for organisations that cannot afford failure"
-          description="Every system we deliver is designed for resilience, compliance, and long-term maintainability."
+          title="Connected digital solutions for real business needs"
+          description="From first idea to ongoing support, we bring software, design, infrastructure, data, and marketing together around your goals."
           align="center"
         />
 

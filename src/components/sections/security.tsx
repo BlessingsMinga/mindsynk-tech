@@ -20,32 +20,28 @@ export function Security() {
       aria-label="Security and compliance"
     >
       <div className="absolute inset-0 -z-10 bg-grid opacity-20" aria-hidden="true" />
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-[72.333px]">
         {/* Header */}
         <div className="grid gap-10 lg:grid-cols-2 lg:items-end">
           <Reveal>
             <span className="inline-block rounded-full border border-brand/30 bg-brand/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-brand">
-              Built on Global Frameworks
+              Security by Design
             </span>
             <h2 className="mt-4 text-3xl font-bold tracking-tight text-white text-balance sm:text-4xl">
               Security &amp; Compliance
             </h2>
             <p className="mt-4 text-base text-white/60 text-pretty sm:text-lg">
-              We implement enterprise-grade security practices across all client
-              engagements. Every system we build is designed with data protection,
-              access control, and auditability as foundational requirements — not
-              afterthoughts.
+              We build security into delivery through secure authentication,
+              encryption, regular updates, and backups appropriate to each system.
             </p>
           </Reveal>
 
           <Reveal delay={0.12}>
             <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
               <p className="text-sm leading-relaxed text-white/70 text-pretty">
-                We comply with Malawi&rsquo;s Data Protection Act, sector-specific
-                regulations in healthcare and finance, and implement GDPR-aligned
-                data handling practices for engagements with international
-                organisations. All client data is subject to formal data
-                processing agreements prior to project initiation.
+                We treat client data and systems with care. Security requirements
+                are discussed early so that the right protections are included in
+                the solution from the start.
               </p>
             </div>
           </Reveal>

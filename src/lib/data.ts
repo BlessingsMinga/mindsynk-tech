@@ -32,10 +32,10 @@ export const services: Service[] = [
     icon: Code2,
     outcome: "Reliable systems your organisation can depend on.",
     details: [
-      "Custom web platforms built with React, Next.js, and modern TypeScript stacks.",
-      "Native and cross-platform mobile apps for iOS and Android.",
-      "API design, third-party integrations, and secure authentication systems.",
-      "Automated testing, CI/CD pipelines, and long-term maintenance support.",
+      "Web and mobile applications designed around each client's operational needs.",
+      "Full-lifecycle delivery from concept and development to deployment and support.",
+      "Secure authentication and third-party integrations where they add value.",
+      "Ongoing maintenance and improvements for systems that need to grow over time.",
     ],
   },
   {
@@ -45,10 +45,10 @@ export const services: Service[] = [
     icon: Cloud,
     outcome: "Lower infrastructure costs and higher uptime.",
     details: [
-      "Cloud strategy and architecture for AWS, Azure, and Google Cloud.",
-      "Seamless migration of legacy systems with zero-downtime cutovers.",
-      "Containerisation with Docker & Kubernetes and infrastructure-as-code.",
-      "Cost optimisation, monitoring, and 24/7 reliability engineering.",
+      "Migration of systems and data to secure cloud environments.",
+      "Cloud planning that improves accessibility and scalability.",
+      "Practical hosting and infrastructure choices for growing organisations.",
+      "Ongoing optimisation to help manage infrastructure costs.",
     ],
   },
   {
@@ -60,8 +60,8 @@ export const services: Service[] = [
     details: [
       "IT infrastructure audits and digital transformation roadmaps.",
       "Network design, installation, and security hardening.",
-      "Cybersecurity assessments and compliance guidance.",
-      "Managed IT support and proactive system monitoring.",
+      "Technology guidance aligned with business objectives and budgets.",
+      "Practical IT support, updates, and backup planning.",
     ],
   },
   {
@@ -73,7 +73,7 @@ export const services: Service[] = [
     details: [
       "SEO, content strategy, and search engine marketing (SEM).",
       "Social media management across all major platforms.",
-      "Paid advertising campaigns with measurable ROI tracking.",
+      "Campaign planning focused on visibility, engagement, and conversions.",
       "Brand storytelling and email marketing automation.",
     ],
   },
@@ -85,8 +85,8 @@ export const services: Service[] = [
     outcome: "Decisions backed by accurate, timely data.",
     details: [
       "Business intelligence dashboards and real-time reporting.",
-      "Data pipeline engineering and warehouse architecture.",
-      "Predictive modelling and machine learning solutions.",
+      "Data preparation and reporting for clearer performance tracking.",
+      "Actionable analysis that identifies opportunities to improve performance.",
       "Customer analytics and behavioural segmentation.",
     ],
   },
@@ -97,8 +97,8 @@ export const services: Service[] = [
     icon: Palette,
     outcome: "Products your users genuinely love to use.",
     details: [
-      "User research, wireframes, and interactive prototypes.",
-      "Design systems and component libraries for scalable products.",
+      "Human-centred interface design, wireframes, and prototypes.",
+      "Brand design and visual guidelines for credible digital products.",
       "Brand identity, logo design, and visual guidelines.",
       "Usability testing and conversion-focused interface design.",
     ],
@@ -115,42 +115,28 @@ export type Reason = {
 export const reasons: Reason[] = [
   {
     number: "01",
-    title: "We Understand Organisational Complexity",
+    title: "Integrated, Practical Solutions",
     description:
-      "We design systems that fit into complex organisational environments. From NGOs operating across multiple countries to enterprises handling sensitive data, we understand workflows, compliance, and scale.",
-    highlight: "5+ countries supported",
+      "We connect your website, marketing, hosting, and support into one system, giving you a single accountable technology partner.",
   },
   {
     number: "02",
-    title: "AI & Automation at the Core",
+    title: "Built Around Your Needs",
     description:
-      "We embed intelligent automation, predictive analytics, and AI assistants into the systems we build — so your organisation makes faster, smarter, data-driven decisions.",
+      "We build custom systems around the way your organisation works, rather than forcing you into a one-size-fits-all platform.",
   },
   {
     number: "03",
-    title: "Strong Focus on Security & Data Protection",
+    title: "Clear, Collaborative Delivery",
     description:
-      "Every system is designed with data protection, access control, and auditability as foundational requirements — not afterthoughts. Compliance is built in from day one.",
+      "We scope work clearly, communicate openly, and work alongside your team from quotation through delivery.",
   },
   {
     number: "04",
-    title: "Long-term Partnership Model",
+    title: "Designed to Grow With You",
     description:
-      "We don't disappear after delivery. We provide SLA-backed support, ongoing patching, and continuous improvement so your systems evolve with your organisation.",
+      "Our scalable solutions and maintenance options help you improve over time without replacing everything as your organisation grows.",
   },
-]
-
-export type Stat = {
-  value: number
-  suffix: string
-  label: string
-}
-
-export const stats: Stat[] = [
-  { value: 50, suffix: "+", label: "Enterprise Systems Delivered" },
-  { value: 30, suffix: "+", label: "Institutional Clients Served" },
-  { value: 5, suffix: "+", label: "Countries of Active Deployment" },
-  { value: 5, suffix: "yr", label: "Delivering at Scale" },
 ]
 
 export type Phase = {
@@ -166,79 +152,57 @@ export const processPhases: Phase[] = [
     label: "PHASE ONE",
     title: "Discovery & Systems Assessment",
     description:
-      "We start by understanding your operations, infrastructure, compliance needs, and goals before implementation. This covers stakeholder workshops, technical audits, governance mapping, and an architecture recommendation.",
+      "We start by understanding your operations, users, goals, and budget before recommending a practical roadmap.",
   },
   {
     number: "02",
     label: "PHASE TWO",
     title: "Architecture & Development",
     description:
-      "We build to spec with clear milestones, regular reviews, and rigorous QA throughout. Every stage includes security testing, system integration, and full documentation.",
+      "We prototype quickly, gather feedback, and improve iteratively with clear milestones and regular reviews.",
   },
   {
     number: "03",
     label: "PHASE THREE",
     title: "Deployment & Long-Term Support",
     description:
-      "We manage rollout, train your team, and provide SLA-backed support that keeps your system performing and evolving with ongoing patching and continuous improvement.",
+      "We support rollout, train your team where needed, and offer maintenance so your system can keep evolving.",
   },
 ]
 
-export type CaseStudy = {
+export type FocusArea = {
   id: string
   title: string
   sector: string
   region: string
-  image: string
-  challenge: string
-  solution: string
-  outcome: string
-  outcomeValue: string
-  tags: string[]
+  description: string
+  services: string[]
 }
 
-export const caseStudies: CaseStudy[] = [
+export const focusAreas: FocusArea[] = [
   {
-    id: "medialert",
-    title: "MediAlert",
-    sector: "Healthcare Platform",
+    id: "smes",
+    title: "Small & Medium-Sized Businesses",
+    sector: "Business Growth",
     region: "Malawi",
-    image: "/images/case-medialert.png",
-    challenge:
-      "Patient care was fragmented across facilities with no centralised medication tracking, leading to missed reminders, poor adherence, and limited visibility for clinicians.",
-    solution:
-      "A secure, patient-facing platform that digitises medication reminders, vitals tracking, and emergency alerts — giving clinicians real-time visibility while maintaining strict patient confidentiality.",
-    outcome: "Faster care coordination and a better patient experience.",
-    outcomeValue: "97%",
-    tags: ["React Native", "Node.js", "AWS", "FHIR API"],
+    description: "Affordable digital systems, reliable IT support, and stronger customer engagement for growing businesses.",
+    services: ["Software Development", "Cloud Computing", "Digital Marketing"],
   },
   {
-    id: "pzahome",
-    title: "PezaHome",
-    sector: "Real Estate Marketplace",
-    region: "East Africa",
-    image: "/images/case-pezahome.png",
-    challenge:
-      "Property listings were scattered across informal channels with no verification, making transactions slow, opaque, and difficult to trust for buyers and agents alike.",
-    solution:
-      "A full-stack marketplace with virtual tours, verified listings, mortgage calculators, and agent dashboards — bringing transparency and speed to property transactions.",
-    outcome: "Trusted, data-driven property transactions at scale.",
-    outcomeValue: "95%",
-    tags: ["Next.js", "PostgreSQL", "Mapbox", "Stripe"],
+    id: "startups",
+    title: "Startups & Founders",
+    sector: "Digital Products",
+    region: "Malawi and beyond",
+    description: "Practical support for founders building their first usable, credible, and scalable digital product.",
+    services: ["Software Development", "Graphic Design & UI/UX", "IT Consultancy"],
   },
   {
-    id: "agripay",
-    title: "AgriPay",
-    sector: "FinTech Solution",
-    region: "Malawi & Zambia",
-    image: "/images/case-agripay.png",
-    challenge:
-      "Agricultural cooperatives relied on manual, cash-based processes that were slow, error-prone, and left members without digital records of their transactions.",
-    solution:
-      "A mobile wallet and payment system built for cooperatives — enabling seamless transactions, digital record-keeping, and offline-first USSD access for rural members.",
-    outcome: "Trusted, data-driven financial inclusion at scale.",
-    outcomeValue: "92%",
-    tags: ["Flutter", "Go", "Postgres", "USSD"],
+    id: "institutions",
+    title: "Schools, NGOs & Institutions",
+    sector: "Community Impact",
+    region: "Malawi and beyond",
+    description: "Connected systems and digital capability-building that help organisations serve their communities more effectively.",
+    services: ["Data Analytics", "IT Consultancy", "Digital Marketing"],
   },
 ]
 
@@ -264,7 +228,7 @@ export const securityPillars: SecurityPillar[] = [
   {
     title: "Data Residency & Encryption",
     description:
-      "Data storage location policies and end-to-end encryption aligned to client jurisdiction and regulatory requirements.",
+      "Secure authentication and encryption practices appropriate to the systems and data we manage.",
     icon: Database,
   },
   {
@@ -305,6 +269,12 @@ export const coreValues: CoreValue[] = [
     description:
       "Every solution is designed around your users' real needs and your business's measurable outcomes.",
     icon: Palette,
+  },
+  {
+    title: "Collaboration",
+    description:
+      "We work alongside clients as a technology partner, not simply as a vendor.",
+    icon: Network,
   },
 ]
 
@@ -359,10 +329,7 @@ export const navLinks = [
 export const companyInfo = {
   name: "MindSynk Technologies",
   tagline: "Powering Progress Through Technology",
-  email: "hello@mindsynk.tech",
-  phone: "+265 888 393 252",
-  whatsapp: "265992092766",
-  location: "Lilongwe, Malawi",
-  address: "Area 47, Lilongwe, Malawi",
-  hours: "Mon - Fri: 08:00am - 05:00pm",
+  primaryContact: "Blessings Minga",
+  email: "Blessingsminga11@gmail.com",
+  location: "Remote — serving Malawi and beyond",
 }

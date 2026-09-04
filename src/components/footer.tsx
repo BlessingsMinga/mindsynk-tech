@@ -14,7 +14,7 @@ export function Footer() {
 
   return (
     <footer className="mt-auto bg-navy-deep text-white">
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-[72.333px]">
         <div className="grid gap-10 lg:grid-cols-4">
           {/* Brand */}
           <div className="lg:col-span-1">

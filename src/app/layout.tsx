@@ -18,33 +18,12 @@ const structuredData = {
       logo: `${SITE_URL}/MindSynk_Full.png`,
       image: `${SITE_URL}/og.png`,
       description:
-        "MindSynk Technologies is a B2B tech partner delivering software development, cloud computing, IT consultancy, digital marketing, data analytics, and design services from Lilongwe, Malawi.",
+        "MindSynk Technologies is a Malawian technology partnership delivering software development, cloud computing, IT consultancy, digital marketing, data analytics, and design services remotely across Malawi and beyond.",
       email: companyInfo.email,
-      telephone: companyInfo.phone.replace(/\s/g, ""),
       priceRange: "$$",
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "Area 47",
-        addressLocality: "Lilongwe",
-        addressCountry: "MW",
-      },
-      geo: {
-        "@type": "GeoCoordinates",
-        latitude: -13.9626,
-        longitude: 33.7741,
-      },
-      openingHoursSpecification: [
-        {
-          "@type": "OpeningHoursSpecification",
-          dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-          opens: "08:00",
-          closes: "17:00",
-        },
-      ],
-      areaServed: ["Malawi", "Zambia", "East Africa"],
+      areaServed: ["Malawi", "Southern Africa"],
       contactPoint: {
         "@type": "ContactPoint",
-        telephone: companyInfo.phone.replace(/\s/g, ""),
         contactType: "sales",
         email: companyInfo.email,
         availableLanguage: "English",
@@ -76,7 +55,7 @@ export const metadata: Metadata = {
     template: "%s | MindSynk Technologies",
   },
   description:
-    "MindSynk Technologies is a B2B tech partner delivering software development, cloud computing, IT consultancy, digital marketing, data analytics, and design services from Lilongwe, Malawi.",
+    "MindSynk Technologies is a Malawian technology partnership delivering practical digital solutions remotely across Malawi and beyond.",
   keywords: [
     "MindSynk Technologies",
     "software development Malawi",
@@ -85,8 +64,8 @@ export const metadata: Metadata = {
     "digital marketing",
     "data analytics",
     "UI UX design",
-    "Lilongwe tech company",
-    "B2B technology partner",
+    "Malawi technology partnership",
+    "SME technology partner",
   ],
   authors: [{ name: "MindSynk Technologies" }],
   creator: "MindSynk Technologies",
@@ -104,7 +83,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "MindSynk Technologies — Powering Progress Through Technology",
     description:
-      "A B2B technology partner delivering software, cloud, data, and design solutions that move your business forward.",
+      "Practical software, cloud, data, design, and marketing solutions for organisations across Malawi and beyond.",
     url: SITE_URL,
     siteName: "MindSynk Technologies",
     type: "website",

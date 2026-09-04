@@ -24,7 +24,7 @@ const contactDetails = [
 export function Contact() {
   return (
     <section id="contact" className="bg-secondary/40 py-20 sm:py-28" aria-label="Contact us">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-[72.333px]">
         <SectionHeading
           eyebrow="Get In Touch"
           title="Start a conversation"

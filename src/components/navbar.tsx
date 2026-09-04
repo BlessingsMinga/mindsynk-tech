@@ -37,7 +37,7 @@ export function Navbar() {
     >
       {/* Utility top bar */}
       <div className="hidden border-b border-white/10 bg-navy-deep text-white/70 lg:block">
-        <div className="mx-auto flex h-9 max-w-7xl items-center justify-between px-8 text-xs">
+        <div className="mx-auto flex h-9 max-w-7xl items-center justify-between px-4 text-xs sm:px-6 lg:px-[72.333px]">
           <div className="flex items-center gap-6">
             <span className="flex items-center gap-1.5">
               <MapPin className="size-3.5 text-brand" />
@@ -77,7 +77,7 @@ export function Navbar() {
         )}
       >
         <nav
-          className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8"
+          className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-[72.333px]"
           aria-label="Main navigation"
         >
           <a

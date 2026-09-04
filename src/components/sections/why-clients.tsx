@@ -14,11 +14,11 @@ const GLOW_HSL = "15 88 53"
 export function WhyClientsComeBack() {
   return (
     <section id="why" className="py-20 sm:py-28" aria-label="Why clients come back">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-[72.333px]">
         <SectionHeading
-          eyebrow="Why Clients Come Back"
-          title="We go beyond requirements to understand your entire ecosystem"
-          description="Your staff, partners, customers, and operations — then design solutions that fit naturally into how your organisation runs. The result is technology that delivers real impact."
+          eyebrow="Why MindSynk"
+          title="A technology partner built around your organisation"
+          description="We connect your people, processes, and goals to practical digital systems that support lasting improvement."
           align="center"
         />
 

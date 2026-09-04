@@ -9,7 +9,7 @@ export function Process() {
     <section
       id="process"
       className="relative overflow-hidden bg-navy py-20 sm:py-28"
-      aria-label="Built for complex organisations"
+      aria-label="How we work"
     >
       <div className="absolute inset-0 -z-10 bg-grid opacity-30" aria-hidden="true" />
       {/* Gold orb */}
@@ -18,18 +18,18 @@ export function Process() {
         aria-hidden="true"
       />
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-[72.333px]">
         {/* Header */}
         <Reveal className="max-w-3xl">
           <span className="inline-block rounded-full border border-brand/30 bg-brand/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-brand">
-            Built for Complex Organisations
+            How We Work
           </span>
           <h2 className="mt-4 text-3xl font-bold tracking-tight text-white text-balance sm:text-4xl">
-            A structured, three-phase delivery model designed for complex organisations
+            A practical, collaborative delivery process
           </h2>
           <p className="mt-4 text-base text-white/60 text-pretty sm:text-lg">
-            Built for organisations with long planning cycles and multiple
-            stakeholders — so nothing falls through the cracks.
+            We use rapid prototyping, regular feedback, and iterative improvement
+            to turn ideas into useful digital systems.
           </p>
         </Reveal>
 

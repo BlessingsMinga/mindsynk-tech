@@ -15,7 +15,7 @@ const waysOfWorking = [
 export function Team() {
   return (
     <section id="team" className="bg-secondary/45 py-20 sm:py-28" aria-label="Our team">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-[72.333px]">
         <SectionHeading
           eyebrow="Our Team"
           title="The right minds around every challenge"

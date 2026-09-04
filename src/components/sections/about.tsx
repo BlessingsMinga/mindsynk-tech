@@ -11,11 +11,11 @@ import { coreValues } from "@/lib/data"
 export function About() {
   return (
     <section id="about" className="py-20 sm:py-28" aria-label="About MindSynk">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-[72.333px]">
         <SectionHeading
           eyebrow="About Us"
-          title="Built by passionate individuals, focused on enterprise-grade systems"
-          description="MindSynk Technologies is a tech-solutions company that designs, builds, and scales secure, high-impact software solutions — helping businesses, governments, and institutions optimise operations and drive measurable value."
+          title="Practical technology for organisations ready to grow"
+          description="MindSynk Technologies designs and delivers modern, connected digital systems that help businesses, schools, NGOs, and institutions work more efficiently."
           align="center"
         />
 
@@ -33,8 +33,8 @@ export function About() {
               <div className="absolute inset-0 bg-gradient-to-t from-navy/50 to-transparent" />
               {/* Floating badge */}
               <div className="absolute bottom-4 left-4 rounded-xl border border-white/10 bg-navy/90 px-4 py-3 backdrop-blur-md">
-                <p className="text-2xl font-bold text-brand">5+ yrs</p>
-                <p className="text-xs text-white/70">Delivering at scale</p>
+                <p className="text-2xl font-bold text-brand">Since 2025</p>
+                <p className="text-xs text-white/70">Built in Malawi</p>
               </div>
             </div>
           </Reveal>
@@ -57,9 +57,8 @@ export function About() {
                   future-ready systems powered by modern technologies.
                 </p>
                 <p>
-                  Today we serve clients across healthcare, finance, agriculture,
-                  and real estate, delivering enterprise-grade software that scales
-                  with ambition.
+                  We focus on startups, SMEs, schools, NGOs, and organisations
+                  seeking reliable, modern digital systems that can grow with them.
                 </p>
               </div>
             </div>
@@ -75,9 +74,9 @@ export function About() {
               </div>
               <h3 className="text-xl font-bold">Our Vision</h3>
               <p className="mt-3 text-muted-foreground text-pretty">
-                To be Africa&rsquo;s most trusted technology partner — empowering
-                businesses and communities to thrive in a connected, data-driven
-                world through innovation that genuinely matters.
+                To become one of Malawi&rsquo;s leading integrated technology partners,
+                delivering smart, seamless, and scalable ICT solutions that support
+                business growth across Africa&rsquo;s digital economy.
               </p>
             </Card>
           </Reveal>
@@ -88,9 +87,9 @@ export function About() {
               </div>
               <h3 className="text-xl font-bold">Our Mission</h3>
               <p className="mt-3 text-muted-foreground text-pretty">
-                To deliver reliable, scalable, and human-centred technology
-                solutions that solve real problems — combining global engineering
-                standards with deep local understanding.
+                To design, develop, and deliver intelligent digital solutions that
+                automate processes, reduce errors, and create long-term measurable
+                value for clients.
               </p>
             </Card>
           </Reveal>
